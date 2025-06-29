@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Actions Certification Quiz</title>
+    <link rel="stylesheet" href="./src/styles/main.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Menu Panel -->
+        <header>
+            <h1>GitHub Actions Certification Quiz</h1>
+            <nav>
+                <button id="practice-tab" class="tab active">Practice</button>
+                <button id="test-tab" class="tab">Test</button>
+            </nav>
+        </header>
+        
+        <div class="main-content">
+            <div class="quiz-section">
+                <!-- Practice Mode -->
+                <div id="practice-mode" class="tab-content active">
+                    <!-- Question List Panel -->
+                    <div class="quiz-controls">
+                        <label for="question-select">Select Question:</label>
+                        <select id="question-select">
+                            <option value="">Loading questions...</option>
+                        </select>
+                        <span id="question-info"></span>
+                        
+                        <div class="navigation-controls">
+                            <button id="prev-btn-top" class="btn btn-nav">← Previous</button>
+                            <button id="next-btn-top" class="btn btn-nav">Next →</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Questions View Panel -->
+                    <div class="question-card">
+                        <div class="question-header">
+                            <h2 class="question-title" id="question-title">Loading...</h2>
+                            <div class="question-content" id="question-content">
+                                <!-- Question content will be loaded here -->
+                            </div>
+                        </div>
+                        
+                        <div class="choices-container" id="answer-choices">
+                            <!-- Choices will be loaded here -->
+                        </div>
+                        
+                        <div class="quiz-actions">
+                            <button id="submit-btn" class="btn btn-primary" disabled>Submit Answer</button>
+                            <button id="mark-btn" class="btn btn-secondary">Mark Question</button>
+                            <button id="prev-btn-bottom" class="btn btn-nav">← Previous</button>
+                            <button id="next-btn-bottom" class="btn btn-nav">Next →</button>
+                        </div>
+                        
+                        <div id="result-section" class="result-section hidden">
+                            <div id="answer-explanation"></div>
+                            <div id="answer-link"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Test Mode -->
+                <div id="test-mode" class="tab-content">
+                    <!-- Test Setup View -->
+                    <div id="test-setup" class="test-setup-content">
+                        <h2>Test Mode Setup</h2>
+                        <p>Configure your test settings:</p>
+                        
+                        <div class="test-options">
+                            <div class="option-group">
+                                <h3>Question Selection:</h3>
+                                
+                                <label class="option-label">
+                                    <input type="radio" name="question-source" value="manual" checked>
+                                    <span>Pick manually from question list</span>
+                                </label>
+                                
+                                <label class="option-label">
+                                    <input type="radio" name="question-source" value="random">
+                                    <span>Random questions</span>
+                                    <input type="number" id="random-count" value="10" min="1" max="126" class="number-input">
+                                    questions
+                                </label>
+                                
+                                <label class="option-label">
+                                    <input type="radio" name="question-source" value="all">
+                                    <span>All questions</span>
+                                </label>
+                                
+                                <label class="option-label">
+                                    <input type="radio" name="question-source" value="marked">
+                                    <span>From marked questions (<span id="marked-count">0</span> questions)</span>
+                                </label>
+                            </div>
+                            
+                            <!-- Manual Selection Table -->
+                            <div id="manual-selection" class="manual-selection">
+                                <h4>Select Questions:</h4>
+                                <div class="selection-controls">
+                                    <button class="btn btn-small" id="select-all">Select All</button>
+                                    <button class="btn btn-small" id="select-none">Select None</button>
+                                    <span id="selection-count">0 questions selected</span>
+                                </div>
+                                <div class="questions-table" id="questions-table">
+                                    <!-- Questions table will be populated here -->
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button id="start-test-btn" class="start-test-btn">Start Test</button>
+                    </div>
+                    
+                    <!-- Test Active View -->
+                    <div id="test-active" class="hidden">
+                        <!-- Question List Panel for Test -->
+                        <div class="quiz-controls">
+                            <label for="test-question-select">Select Question:</label>
+                            <select id="test-question-select">
+                                <option value="">Loading questions...</option>
+                            </select>
+                            <span id="test-question-info"></span>
+                            
+                            <div class="test-controls">
+                                <label class="toggle-label">
+                                    <input type="checkbox" id="show-real-numbers">
+                                    <span>Show real question numbers</span>
+                                </label>
+                                <button id="end-test-btn" class="btn btn-warning">End Test</button>
+                            </div>
+                            
+                            <div class="navigation-controls">
+                                <button id="test-prev-btn-top" class="btn btn-nav">← Previous</button>
+                                <button id="test-next-btn-top" class="btn btn-nav">Next →</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Questions View Panel for Test -->
+                        <div class="question-card">
+                            <div class="question-header">
+                                <h2 class="question-title" id="test-question-title">Loading...</h2>
+                                <div class="question-content" id="test-question-content">
+                                    <!-- Question content will be loaded here -->
+                                </div>
+                            </div>
+                            
+                            <div class="choices-container" id="test-answer-choices">
+                                <!-- Choices will be loaded here -->
+                            </div>
+                            
+                            <div class="quiz-actions">
+                                <button id="test-submit-btn" class="btn btn-primary" disabled>Submit Answer</button>
+                                <button id="test-mark-later-btn" class="btn btn-secondary">Mark for Later</button>
+                                <button id="test-prev-btn-bottom" class="btn btn-nav">← Previous</button>
+                                <button id="test-next-btn-bottom" class="btn btn-nav">Next →</button>
+                            </div>
+                            
+                            <div id="test-result-section" class="result-section hidden">
+                                <div id="test-answer-explanation"></div>
+                                <div id="test-answer-link"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mark Questions Panel / Test Lists Panel -->
+            <div class="sidebar">
+                <!-- Practice Mode Sidebar -->
+                <div id="practice-sidebar">
+                    <h3>Marked Questions</h3>
+                    <div class="marked-questions" id="marked-questions">
+                        <p style="color: #9ca3af; font-style: italic;">No marked questions yet</p>
+                    </div>
+                    <button id="clear-marks-btn" class="btn clear-marks-btn">Clear All Marks</button>
+                </div>
+                
+                <!-- Test Mode Sidebar -->
+                <div id="test-sidebar" class="hidden">
+                    <div class="test-list-section">
+                        <h3>Do Later <span id="do-later-count" class="count-badge">0</span></h3>
+                        <div class="test-questions-list" id="do-later-questions">
+                            <p style="color: #9ca3af; font-style: italic;">No questions marked for later</p>
+                        </div>
+                    </div>
+                    
+                    <div class="test-list-section">
+                        <h3>Failed Questions <span id="failed-count" class="count-badge">0</span></h3>
+                        <div class="test-questions-list" id="failed-questions">
+                            <p style="color: #9ca3af; font-style: italic;">No failed questions yet</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Toast notification -->
+    <div id="toast-notification" class="toast hidden">
+        <span id="toast-message"></span>
+    </div>
+    
+    <script type="module" src="./src/main.js"></script>
+</body>
+</html>

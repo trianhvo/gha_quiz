@@ -1,0 +1,74 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "title": "Question 001",
+      "question": "Which statement is correct regarding passing permissions to reusable workflows?",
+      "choices": [
+        {
+          "text": "The `GITHUB_TOKEN` permissions passed from the caller workflow can be only downgraded by the called workflow.",
+          "correct": true
+        },
+        {
+          "text": "The `GITHUB_TOKEN` permissions passed from the caller workflow can be only elevated by the called workflow.",
+          "correct": false
+        },
+        {
+          "text": "The `GITHUB_TOKEN` permissions passed from the caller workflow can be both downgraded and elevated by the called workflow.",
+          "correct": false
+        },
+        {
+          "text": "The `GITHUB_TOKEN` permissions passed from the caller workflow can be neither downgraded or elevated by the called workflow.",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The GITHUB_TOKEN permissions can only be downgraded by the called workflow, not elevated, for security reasons.",
+      "link": "https://docs.github.com/en/actions/using-workflows/reusing-workflows#access-and-permissions"
+    },
+    {
+      "id": 2,
+      "title": "Question 002",
+      "question": "What are the different permission levels you can assign to `GITHUB_TOKEN` in the `permissions` block?",
+      "choices": [
+        {
+          "text": "none, write, read",
+          "correct": true
+        },
+        {
+          "text": "read, write, delete",
+          "correct": false
+        },
+        {
+          "text": "read, write",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The three permission levels for GITHUB_TOKEN are: none (no permissions), read (read-only access), and write (read and write access).",
+      "link": "https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs"
+    },
+    {
+      "id": 3,
+      "title": "Question 003",
+      "question": "You can use `permissions` to modify the `GITHUB_TOKEN` permissions on: (Select two.)",
+      "choices": [
+        {
+          "text": "Workflow level",
+          "correct": true
+        },
+        {
+          "text": "Job level",
+          "correct": true
+        },
+        {
+          "text": "Step level",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": true,
+      "explanation": "You can set permissions at both the workflow level (applies to all jobs) and job level (overrides workflow level for that specific job). Permissions cannot be set at the step level.",
+      "link": "https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/controlling-permissions-for-github_token"
+    }
+  ]
+}
