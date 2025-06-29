@@ -37,6 +37,9 @@ class TestManager {
         
         // Initialize states
         this.questionStates.clear();
+        this.testQuestions.forEach(q => {
+            this.questionStates.set(q.testIndex, { submitted: false, correct: false, selectedAnswers: [] });
+        });
         this.doLaterList = [];
         this.failedList = [];
         this.currentIndex = 0;
@@ -51,14 +54,14 @@ class TestManager {
         return shuffled;
     }
     
-    markForLater(testIndex) {
-        if (!this.doLaterList.includes(testIndex)) {
+    toggleMarkForLater(testIndex) {
+        if (this.doLaterList.includes(testIndex)) {
+            this.doLaterList = this.doLaterList.filter(idx => idx !== testIndex);
+            return false; // Unmarked
+        } else {
             this.doLaterList.push(testIndex);
+            return true; // Marked
         }
-    }
-    
-    removeFromLater(testIndex) {
-        this.doLaterList = this.doLaterList.filter(idx => idx !== testIndex);
     }
     
     markAsFailed(testIndex) {
@@ -88,6 +91,33 @@ class TestManager {
             return `Question ${question.testIndex} - ${question.originalId}`;
         }
         return `Question ${question.testIndex}`;
+    }
+
+    getStats() {
+        let unanswered = 0;
+        let points = 0;
+        const missed = [];
+
+        this.testQuestions.forEach(q => {
+            const state = this.getQuestionState(q.testIndex);
+            if (!state.submitted) {
+                unanswered++;
+                if (!this.doLaterList.includes(q.testIndex)) {
+                    missed.push(q.testIndex);
+                }
+            } else {
+                if (state.correct) {
+                    points++;
+                }
+            }
+        });
+
+        return {
+            unanswered,
+            points,
+            total: this.testQuestions.length,
+            missed
+        };
     }
 }
 
@@ -124,6 +154,14 @@ class QuizApp {
         const testSidebar = document.getElementById('test-sidebar');
         
         practiceTab.addEventListener('click', () => {
+            if (this.testManager) {
+                if (confirm('Are you sure you want to switch to Practice Mode? All test progress will be lost.')) {
+                    this.endTest(false);
+                } else {
+                    return;
+                }
+            }
+
             practiceTab.classList.add('active');
             testTab.classList.remove('active');
             practiceMode.classList.add('active');
@@ -131,10 +169,6 @@ class QuizApp {
             practiceSidebar.classList.remove('hidden');
             testSidebar.classList.add('hidden');
             this.testMode = false;
-            
-            if (this.testManager) {
-                this.endTest();
-            }
             
             this.populateQuestionDropdown();
         });
@@ -244,11 +278,12 @@ class QuizApp {
         
         // Test mode event listeners
         const startTestBtn = document.getElementById('start-test-btn');
-        const endTestBtn = document.getElementById('end-test-btn');
+        const quitTestBtn = document.getElementById('quit-test-btn');
+        const retakeFailedBtn = document.getElementById('retake-failed-btn');
         const testQuestionSelect = document.getElementById('test-question-select');
         const testSubmitBtn = document.getElementById('test-submit-btn');
         const testMarkLaterBtn = document.getElementById('test-mark-later-btn');
-        const showRealNumbersToggle = document.getElementById('show-real-numbers');
+        const revealNumbersBtn = document.getElementById('reveal-numbers-btn');
         
         // Test navigation buttons
         const testNextBtnTop = document.getElementById('test-next-btn-top');
@@ -275,10 +310,11 @@ class QuizApp {
         
         // Test mode listeners
         startTestBtn.addEventListener('click', () => this.startTest());
-        endTestBtn.addEventListener('click', () => this.endTest());
+        quitTestBtn.addEventListener('click', () => this.endTest(true));
+        retakeFailedBtn.addEventListener('click', () => this.retakeFailedTest());
         
         testQuestionSelect.addEventListener('change', (e) => {
-            if (e.target.value !== '') {
+            if (e.target.value !== '' && this.testManager) {
                 this.testManager.currentIndex = parseInt(e.target.value);
                 this.loadTestQuestion();
             }
@@ -287,8 +323,9 @@ class QuizApp {
         testSubmitBtn.addEventListener('click', () => this.submitTestAnswer());
         testMarkLaterBtn.addEventListener('click', () => this.markTestQuestionForLater());
         
-        showRealNumbersToggle.addEventListener('change', (e) => {
-            this.testManager.showRealNumbers = e.target.checked;
+        revealNumbersBtn.addEventListener('click', () => {
+            this.testManager.showRealNumbers = !this.testManager.showRealNumbers;
+            this.updateRevealNumbersButton();
             this.updateTestUI();
         });
         
@@ -302,6 +339,7 @@ class QuizApp {
         document.getElementById('test-setup').classList.remove('hidden');
         document.getElementById('test-active').classList.add('hidden');
         this.updateMarkedCount();
+        this.clearTestSidebar();
     }
     
     startTest() {
@@ -354,10 +392,29 @@ class QuizApp {
         this.showToast(`Test started with ${selectedQuestionIds.length} questions`, 'success');
     }
     
+    retakeFailedTest() {
+        if (!this.testManager || this.testManager.failedList.length === 0) {
+            this.showToast('No failed questions to retake.', 'error');
+            return;
+        }
+        const failedQuestionIds = this.testManager.failedList.map(testIndex => {
+            const question = this.testManager.getQuestionByTestIndex(testIndex);
+            return question.originalId;
+        });
+
+        this.testManager.setupTest(failedQuestionIds, true, true);
+        this.populateTestQuestionDropdown();
+        this.loadTestQuestion();
+        this.updateTestSidebar();
+        this.showToast(`Retaking ${failedQuestionIds.length} failed questions.`, 'success');
+    }
+    
     populateTestQuestionDropdown() {
         const select = document.getElementById('test-question-select');
         select.innerHTML = '';
         
+        if (!this.testManager) return;
+
         this.testManager.testQuestions.forEach((question, index) => {
             const option = document.createElement('option');
             option.value = index;
@@ -369,6 +426,7 @@ class QuizApp {
     }
     
     loadTestQuestion() {
+        if (!this.testManager) return;
         const question = this.testManager.getCurrentQuestion();
         if (!question) return;
         
@@ -391,16 +449,22 @@ class QuizApp {
         
         document.getElementById('test-submit-btn').disabled = this.selectedAnswers.length === 0 || this.submitted;
         document.getElementById('test-question-select').value = this.testManager.currentIndex;
+        this.updateTestSidebar();
     }
     
     updateTestQuestionInfo() {
         const info = document.getElementById('test-question-info');
+        if (!this.testManager) {
+            info.textContent = '';
+            return;
+        }
         const total = this.testManager.testQuestions.length;
         const current = this.testManager.currentIndex + 1;
         info.textContent = `Question ${current} of ${total}`;
     }
     
     renderTestQuestion() {
+        if (!this.testManager) return;
         const question = this.testManager.getCurrentQuestion();
         const titleElement = document.getElementById('test-question-title');
         const contentElement = document.getElementById('test-question-content');
@@ -411,10 +475,12 @@ class QuizApp {
     
     renderTestChoices() {
         const container = document.getElementById('test-answer-choices');
+        container.innerHTML = '';
+
+        if (!this.testManager) return;
+
         const question = this.testManager.getCurrentQuestion();
         const state = this.testManager.getQuestionState(question.testIndex);
-        
-        container.innerHTML = '';
         
         if (!question.choices || question.choices.length === 0) {
             container.innerHTML = '<p>No choices available for this question.</p>';
@@ -529,7 +595,9 @@ class QuizApp {
         });
         
         // Remove from "do later" if it was there
-        this.testManager.removeFromLater(question.testIndex);
+        if (this.testManager.doLaterList.includes(question.testIndex)) {
+            this.testManager.toggleMarkForLater(question.testIndex);
+        }
         
         // Add to failed list if incorrect
         if (!isCorrect) {
@@ -565,19 +633,25 @@ class QuizApp {
     
     markTestQuestionForLater() {
         const question = this.testManager.getCurrentQuestion();
-        this.testManager.markForLater(question.testIndex);
+        const marked = this.testManager.toggleMarkForLater(question.testIndex);
         this.updateTestSidebar();
         this.updateTestMarkLaterButton();
-        this.showToast('Question marked for later', 'success');
+        this.showToast(marked ? 'Question marked for later' : 'Question unmarked', 'success');
     }
     
     updateTestMarkLaterButton() {
         const button = document.getElementById('test-mark-later-btn');
+        if(!this.testManager) return;
+
         const question = this.testManager.getCurrentQuestion();
+        const isFailed = this.testManager.failedList.includes(question.testIndex);
+        
+        button.disabled = isFailed || question.submitted;
+
         const isMarkedForLater = this.testManager.doLaterList.includes(question.testIndex);
         
         if (isMarkedForLater) {
-            button.textContent = 'Remove from Later';
+            button.textContent = 'Unmark';
             button.classList.add('marked');
         } else {
             button.textContent = 'Mark for Later';
@@ -616,8 +690,38 @@ class QuizApp {
     }
     
     updateTestSidebar() {
+        if (!this.testManager) {
+            this.clearTestSidebar();
+            return;
+        }
         this.updateDoLaterList();
         this.updateFailedList();
+        this.updateStatusPanel();
+    }
+
+    clearTestSidebar() {
+        document.getElementById('do-later-questions').innerHTML = '<p style="color: #9ca3af; font-style: italic;">No questions marked for later</p>';
+        document.getElementById('failed-questions').innerHTML = '<p style="color: #9ca3af; font-style: italic;">No failed questions yet</p>';
+        document.getElementById('do-later-count').textContent = '0';
+        document.getElementById('failed-count').textContent = '0';
+        document.getElementById('unanswered-count').textContent = '0';
+        document.getElementById('test-points').textContent = '0';
+        document.getElementById('missed-questions-list').innerHTML = '';
+    }
+
+    updateStatusPanel() {
+        if (!this.testManager) return;
+        const stats = this.testManager.getStats();
+        document.getElementById('unanswered-count').textContent = stats.unanswered;
+        document.getElementById('test-points').textContent = `${stats.points}/${stats.total}`;
+
+        const missedList = document.getElementById('missed-questions-list');
+        missedList.innerHTML = '';
+        stats.missed.forEach(testIndex => {
+            const li = document.createElement('li');
+            li.textContent = `Question ${testIndex}`;
+            missedList.appendChild(li);
+        });
     }
     
     updateDoLaterList() {
@@ -664,7 +768,7 @@ class QuizApp {
             if (question) {
                 const item = document.createElement('div');
                 item.className = 'test-question-item failed';
-                item.textContent = `Question ${testIndex} - ${question.originalId}`;
+                item.textContent = this.testManager.getDisplayTitle(question);
                 item.addEventListener('click', () => {
                     this.testManager.currentIndex = this.testManager.testQuestions.findIndex(q => q.testIndex === testIndex);
                     this.loadTestQuestion();
@@ -673,22 +777,36 @@ class QuizApp {
             }
         });
     }
+
+    updateRevealNumbersButton() {
+        const button = document.getElementById('reveal-numbers-btn');
+        if (this.testManager.showRealNumbers) {
+            button.textContent = 'Hide Numbers';
+            button.classList.remove('btn-toggle-off');
+            button.classList.add('btn-toggle-on');
+        } else {
+            button.textContent = 'Reveal Numbers';
+            button.classList.remove('btn-toggle-on');
+            button.classList.add('btn-toggle-off');
+        }
+    }
     
     updateTestUI() {
+        if (!this.testManager) return;
         this.populateTestQuestionDropdown();
         this.renderTestQuestion();
-        this.updateDoLaterList();
+        this.updateTestSidebar();
     }
     
     nextTestQuestion() {
-        if (this.testManager.currentIndex < this.testManager.testQuestions.length - 1) {
+        if (this.testManager && this.testManager.currentIndex < this.testManager.testQuestions.length - 1) {
             this.testManager.currentIndex++;
             this.loadTestQuestion();
         }
     }
     
     prevTestQuestion() {
-        if (this.testManager.currentIndex > 0) {
+        if (this.testManager && this.testManager.currentIndex > 0) {
             this.testManager.currentIndex--;
             this.loadTestQuestion();
         }
@@ -700,6 +818,14 @@ class QuizApp {
         const nextBtnBottom = document.getElementById('test-next-btn-bottom');
         const prevBtnBottom = document.getElementById('test-prev-btn-bottom');
         
+        if (!this.testManager) {
+            nextBtnTop.disabled = true;
+            prevBtnTop.disabled = true;
+            nextBtnBottom.disabled = true;
+            prevBtnBottom.disabled = true;
+            return;
+        }
+
         const isFirst = this.testManager.currentIndex === 0;
         const isLast = this.testManager.currentIndex === this.testManager.testQuestions.length - 1;
         
@@ -709,12 +835,19 @@ class QuizApp {
         nextBtnBottom.disabled = isLast;
     }
     
-    endTest() {
-        if (this.testManager && confirm('Are you sure you want to end the test? All progress will be lost.')) {
+    endTest(confirmEnd) {
+        let end = true;
+        if (confirmEnd) {
+            end = confirm('Are you sure you want to quit the test? All progress will be lost.');
+        }
+
+        if (end) {
             this.testManager = null;
             this.testMode = false;
             this.showTestSetup();
-            this.showToast('Test ended', 'success');
+            if (confirmEnd) {
+                this.showToast('Test ended', 'success');
+            }
         }
     }
     

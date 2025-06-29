@@ -115,7 +115,7 @@ nav {
     color: #374151;
 }
 
-#question-select {
+#question-select, #test-question-select {
     padding: 8px 16px;
     border: 2px solid #e5e7eb;
     border-radius: 8px;
@@ -124,10 +124,11 @@ nav {
     transition: border-color 0.3s ease;
 }
 
-#question-select:focus {
+#question-select:focus, #test-question-select:focus {
     outline: none;
     border-color: #667eea;
 }
+
 
 #question-info {
     color: #6b7280;
@@ -596,9 +597,41 @@ nav {
     box-shadow: 0 8px 25px rgba(245, 158, 11, 0.6);
 }
 
+.btn-danger {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+}
+
+.btn-danger:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(239, 68, 68, 0.6);
+}
+
+.btn-toggle-on {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+}
+
+.btn-toggle-off {
+    background: linear-gradient(135deg, #6b7280, #4b5563);
+    color: white;
+}
+
 /* Test Sidebar */
 .test-list-section {
     margin-bottom: 2rem;
+}
+
+#test-status p {
+    margin-bottom: 0.5rem;
+}
+
+#missed-questions-list {
+    list-style-type: none;
+    padding-left: 0;
+    max-height: 100px;
+    overflow-y: auto;
 }
 
 .test-list-section h3 {

@@ -8,7 +8,6 @@
 </head>
 <body>
     <div class="container">
-        <!-- Menu Panel -->
         <header>
             <h1>GitHub Actions Certification Quiz</h1>
             <nav>
@@ -19,9 +18,7 @@
         
         <div class="main-content">
             <div class="quiz-section">
-                <!-- Practice Mode -->
                 <div id="practice-mode" class="tab-content active">
-                    <!-- Question List Panel -->
                     <div class="quiz-controls">
                         <label for="question-select">Select Question:</label>
                         <select id="question-select">
@@ -35,18 +32,15 @@
                         </div>
                     </div>
                     
-                    <!-- Questions View Panel -->
                     <div class="question-card">
                         <div class="question-header">
                             <h2 class="question-title" id="question-title">Loading...</h2>
                             <div class="question-content" id="question-content">
-                                <!-- Question content will be loaded here -->
-                            </div>
+                                </div>
                         </div>
                         
                         <div class="choices-container" id="answer-choices">
-                            <!-- Choices will be loaded here -->
-                        </div>
+                            </div>
                         
                         <div class="quiz-actions">
                             <button id="submit-btn" class="btn btn-primary" disabled>Submit Answer</button>
@@ -62,9 +56,7 @@
                     </div>
                 </div>
                 
-                <!-- Test Mode -->
                 <div id="test-mode" class="tab-content">
-                    <!-- Test Setup View -->
                     <div id="test-setup" class="test-setup-content">
                         <h2>Test Mode Setup</h2>
                         <p>Configure your test settings:</p>
@@ -96,7 +88,6 @@
                                 </label>
                             </div>
                             
-                            <!-- Manual Selection Table -->
                             <div id="manual-selection" class="manual-selection">
                                 <h4>Select Questions:</h4>
                                 <div class="selection-controls">
@@ -105,17 +96,14 @@
                                     <span id="selection-count">0 questions selected</span>
                                 </div>
                                 <div class="questions-table" id="questions-table">
-                                    <!-- Questions table will be populated here -->
-                                </div>
+                                    </div>
                             </div>
                         </div>
                         
                         <button id="start-test-btn" class="start-test-btn">Start Test</button>
                     </div>
                     
-                    <!-- Test Active View -->
                     <div id="test-active" class="hidden">
-                        <!-- Question List Panel for Test -->
                         <div class="quiz-controls">
                             <label for="test-question-select">Select Question:</label>
                             <select id="test-question-select">
@@ -124,11 +112,7 @@
                             <span id="test-question-info"></span>
                             
                             <div class="test-controls">
-                                <label class="toggle-label">
-                                    <input type="checkbox" id="show-real-numbers">
-                                    <span>Show real question numbers</span>
-                                </label>
-                                <button id="end-test-btn" class="btn btn-warning">End Test</button>
+                                <button id="reveal-numbers-btn" class="btn btn-toggle-off">Reveal Numbers</button>
                             </div>
                             
                             <div class="navigation-controls">
@@ -137,24 +121,26 @@
                             </div>
                         </div>
                         
-                        <!-- Questions View Panel for Test -->
                         <div class="question-card">
                             <div class="question-header">
                                 <h2 class="question-title" id="test-question-title">Loading...</h2>
                                 <div class="question-content" id="test-question-content">
-                                    <!-- Question content will be loaded here -->
-                                </div>
+                                    </div>
                             </div>
                             
                             <div class="choices-container" id="test-answer-choices">
-                                <!-- Choices will be loaded here -->
-                            </div>
+                                </div>
                             
                             <div class="quiz-actions">
                                 <button id="test-submit-btn" class="btn btn-primary" disabled>Submit Answer</button>
                                 <button id="test-mark-later-btn" class="btn btn-secondary">Mark for Later</button>
                                 <button id="test-prev-btn-bottom" class="btn btn-nav">← Previous</button>
                                 <button id="test-next-btn-bottom" class="btn btn-nav">Next →</button>
+                            </div>
+
+                            <div class="quiz-actions">
+                                <button id="quit-test-btn" class="btn btn-danger">Quit Test</button>
+                                <button id="retake-failed-btn" class="btn btn-warning">Retake Failed Questions</button>
                             </div>
                             
                             <div id="test-result-section" class="result-section hidden">
@@ -166,9 +152,7 @@
                 </div>
             </div>
             
-            <!-- Mark Questions Panel / Test Lists Panel -->
             <div class="sidebar">
-                <!-- Practice Mode Sidebar -->
                 <div id="practice-sidebar">
                     <h3>Marked Questions</h3>
                     <div class="marked-questions" id="marked-questions">
@@ -177,8 +161,17 @@
                     <button id="clear-marks-btn" class="btn clear-marks-btn">Clear All Marks</button>
                 </div>
                 
-                <!-- Test Mode Sidebar -->
                 <div id="test-sidebar" class="hidden">
+                    <div class="test-list-section">
+                        <h3>Status</h3>
+                        <div id="test-status">
+                            <p>Unanswered: <span id="unanswered-count">0</span></p>
+                            <p>Points: <span id="test-points">0</span></p>
+                            <p>Missed:</p>
+                            <ul id="missed-questions-list"></ul>
+                        </div>
+                    </div>
+
                     <div class="test-list-section">
                         <h3>Do Later <span id="do-later-count" class="count-badge">0</span></h3>
                         <div class="test-questions-list" id="do-later-questions">
@@ -197,7 +190,6 @@
         </div>
     </div>
     
-    <!-- Toast notification -->
     <div id="toast-notification" class="toast hidden">
         <span id="toast-message"></span>
     </div>

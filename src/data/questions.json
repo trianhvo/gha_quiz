@@ -69,6 +69,3220 @@
       "isMultipleChoice": true,
       "explanation": "You can set permissions at both the workflow level (applies to all jobs) and job level (overrides workflow level for that specific job). Permissions cannot be set at the step level.",
       "link": "https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/controlling-permissions-for-github_token"
+    },
+    {
+      "id": 4,
+      "title": "Question 004",
+      "question": "Are GitHub Actions free for public repositories?",
+      "choices": [
+        {
+          "text": "Yes",
+          "correct": true
+        },
+        {
+          "text": "No",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "GitHub Actions is free for all public repositories.",
+      "link": "https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions"
+    },
+    {
+      "id": 5,
+      "title": "Question 005",
+      "question": "Which of these is not a valid event that could trigger a workflow?",
+      "choices": [
+        {
+          "text": "Cloning the repository",
+          "correct": true
+        },
+        {
+          "text": "Committing a file to master branch",
+          "correct": false
+        },
+        {
+          "text": "A branch is created",
+          "correct": false
+        },
+        {
+          "text": "Adding a label to a pull request",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "Cloning a repository does not trigger a workflow. Workflows are triggered by events such as pushes, pull requests, and branch creation.",
+      "link": "https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#about-events-that-trigger-workflows"
+    },
+    {
+      "id": 6,
+      "title": "Question 006",
+      "question": "Which is true about workflows? (Select three.)",
+      "choices": [
+        {
+          "text": "Workflows can run one or multiple jobs at a time",
+          "correct": true
+        },
+        {
+          "text": "Workflows can be triggered manually, by an event or run on a schedule",
+          "correct": true
+        },
+        {
+          "text": "Workflows have to be defined in the `.github/workflows` directory",
+          "correct": true
+        },
+        {
+          "text": "Workflows can only be run on a schedule",
+          "correct": false
+        },
+        {
+          "text": "Workflow can run only one job at a time",
+          "correct": false
+        },
+        {
+          "text": "Workflows are written in any of `.yaml`, `.json` or `.toml` formats",
+          "correct": false
+        },
+        {
+          "text": "Workflows can be shared in GitHub Marketplace",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": true,
+      "explanation": "Workflows can run multiple jobs, be triggered in various ways, and must be in the `.github/workflows` directory. They can't be shared on the Marketplace, and are written in YAML.",
+      "link": "https://docs.github.com/en/actions/using-workflows/about-workflows"
+    },
+    {
+      "id": 7,
+      "title": "Question 007",
+      "question": "Which components are required for a workflow? (Select two.)",
+      "choices": [
+        {
+          "text": "One or more events that will trigger the workflow",
+          "correct": true
+        },
+        {
+          "text": "One or more jobs",
+          "correct": true
+        },
+        {
+          "text": "Workflow name",
+          "correct": false
+        },
+        {
+          "text": "Defined branches on which the workflow will run",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": true,
+      "explanation": "A workflow must have at least one event trigger and at least one job. A name and branch definition are optional.",
+      "link": "https://docs.github.com/en/actions/using-workflows/about-workflows#workflow-basics"
+    },
+    {
+      "id": 8,
+      "title": "Question 008",
+      "question": "Which event is triggered by a webhook action from outside of the repository?",
+      "choices": [
+        {
+          "text": "repository_dispatch",
+          "correct": true
+        },
+        {
+          "text": "webhook_dispatch",
+          "correct": false
+        },
+        {
+          "text": "workflow_dispatch",
+          "correct": false
+        },
+        {
+          "text": "remote_dispatch",
+          "correct": false
+        },
+        {
+          "text": "api_dispatch",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `repository_dispatch` event is used to trigger a workflow from an external webhook.",
+      "link": "https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows"
+    },
+    {
+      "id": 9,
+      "title": "Question 009",
+      "question": "Workflows are defined in which format",
+      "choices": [
+        {
+          "text": "yaml",
+          "correct": true
+        },
+        {
+          "text": "toml",
+          "correct": false
+        },
+        {
+          "text": "json",
+          "correct": false
+        },
+        {
+          "text": "xml",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "Workflows are defined using YAML syntax.",
+      "link": "https://docs.github.com/en/actions/using-workflows/about-workflows"
+    },
+    {
+      "id": 10,
+      "title": "Question 010",
+      "question": "Where should you store sensitive data such as passwords or certificates that will be used in workflows",
+      "choices": [
+        {
+          "text": "secrets",
+          "correct": true
+        },
+        {
+          "text": "config variables",
+          "correct": false
+        },
+        {
+          "text": "vault",
+          "correct": false
+        },
+        {
+          "text": "environment variables",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "Sensitive data should be stored as encrypted secrets.",
+      "link": "https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions"
+    },
+    {
+      "id": 11,
+      "title": "Question 011",
+      "question": "In a workflow with multiple jobs the default behavior is:",
+      "choices": [
+        {
+          "text": "All jobs run in parallel",
+          "correct": true
+        },
+        {
+          "text": "Jobs run in sequence",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "By default, all jobs in a workflow run in parallel.",
+      "link": "https://docs.github.com/en/actions/using-workflows/about-workflows#creating-dependent-jobs"
+    },
+    {
+      "id": 12,
+      "title": "Question 012",
+      "question": "If job B requires job A to be finished you have to:",
+      "choices": [
+        {
+          "text": "use the `needs` keyword in job B to create this dependency",
+          "correct": true
+        },
+        {
+          "text": "use the `needs` keyword in job A to create this dependency",
+          "correct": false
+        },
+        {
+          "text": "use the `requires` keyword in job B to create this dependency",
+          "correct": false
+        },
+        {
+          "text": "use the `requires` keyword in job A to create this dependency",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `needs` keyword is used in the dependent job (job B) to specify that it depends on another job (job A).",
+      "link": "https://docs.github.com/en/actions/using-workflows/about-workflows#creating-dependent-jobs"
+    },
+    {
+      "id": 13,
+      "title": "Question 013",
+      "question": "In a workflow with multiple jobs, if job A fails then:",
+      "choices": [
+        {
+          "text": "the jobs that are dependent on job A are skipped",
+          "correct": true
+        },
+        {
+          "text": "the jobs that are dependent on job A fail",
+          "correct": false
+        },
+        {
+          "text": "the workflow immediately cancels all other jobs",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "If a job fails, any jobs that depend on it are skipped.",
+      "link": "https://docs.github.com/en/actions/using-workflows/about-workflows#creating-dependent-jobs"
+    },
+    {
+      "id": 14,
+      "title": "Question 014",
+      "question": "This code will launch 6 different jobs in parallel using the matrix strategy. Can you use the matrix strategy to parallelize entire workflows?",
+      "choices": [
+        {
+          "text": "No",
+          "correct": false
+        },
+        {
+          "text": "Yes",
+          "correct": true
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "You can use a matrix strategy to run a reusable workflow multiple times with different inputs.",
+      "link": "https://docs.github.com/en/actions/using-workflows/reusing-workflows#using-a-matrix-strategy-with-a-reusable-workflow"
+    },
+    {
+      "id": 15,
+      "title": "Question 015",
+      "question": "Which matrix job definition is syntactically correct?",
+      "choices": [
+        {
+          "text": "jobs:\n  example_matrix:\n    strategy:\n      matrix:\n        version: [10, 12, 14]\n        os: [ubuntu-latest, windows-latest]",
+          "correct": true
+        },
+        {
+          "text": "jobs:\n  example_matrix:\n    matrix:\n      strategy:\n        version: [10, 12, 14]\n        os: [ubuntu-latest, windows-latest]",
+          "correct": false
+        },
+        {
+          "text": "jobs:\n  example_matrix:\n    matrix:\n      version: [10, 12, 14]\n      os: [ubuntu-latest, windows-latest]",
+          "correct": false
+        },
+        {
+          "text": "jobs:\n  matrix:\n    version: [10, 12, 14]\n    os: [ubuntu-latest, windows-latest]",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The correct syntax for a matrix is to define it under the `strategy` key within a job.",
+      "link": "https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs#using-a-matrix-strategy"
+    },
+    {
+      "id": 16,
+      "title": "Question 016",
+      "question": "How do you access matrix variables in a matrix strategy job?",
+      "choices": [
+        {
+          "text": "Using the `vars` context",
+          "correct": false
+        },
+        {
+          "text": "Using the `matrix` context",
+          "correct": true
+        },
+        {
+          "text": "Using the `job` context",
+          "correct": false
+        },
+        {
+          "text": "Using the `jobs` context",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "Matrix variables are accessed through the `matrix` context.",
+      "link": "https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs#using-a-matrix-strategy"
+    },
+    {
+      "id": 17,
+      "title": "Question 017",
+      "question": "When using the `pull_request` and `pull_request_target` events, how do you configure the workflow to run only when targeting the `prod` branch?",
+      "choices": [
+        {
+          "text": "Using `branches` filter",
+          "correct": true
+        },
+        {
+          "text": "Using `branch` filter",
+          "correct": false
+        },
+        {
+          "text": "You create the workflow only on `prod` branch",
+          "correct": false
+        },
+        {
+          "text": "Using glob patterns",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `branches` filter is used to specify which branches the workflow should run on for pull request events.",
+      "link": "https://docs.github.com/en/actions/using-workflows/triggering-a-workflow#using-filters-to-target-specific-branches-for-pull-request-events"
+    },
+    {
+      "id": 18,
+      "title": "Question 018",
+      "question": "This workflow will run on all pull requests where:",
+      "choices": [
+        {
+          "text": "the target branch name starts with `release` but does not end with `-alpha`",
+          "correct": true
+        },
+        {
+          "text": "the target branch name starts with `release`",
+          "correct": false
+        },
+        {
+          "text": "the source branch name starts with `release` but does not end with `-alpha`",
+          "correct": false
+        },
+        {
+          "text": "the source branch name starts with `release`",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `branches` filter with the `pull_request` event targets the *target* branch. The `!` character excludes branches that match the pattern.",
+      "link": "https://docs.github.com/en/actions/using-workflows/triggering-a-workflow#example-including-and-excluding-branches"
+    },
+    {
+      "id": 19,
+      "title": "Question 019",
+      "question": "Fill in the blank: When using `push` event trigger filters you can use <____> patterns to target multiple branches",
+      "choices": [
+        {
+          "text": "glob",
+          "correct": true
+        },
+        {
+          "text": "regex",
+          "correct": false
+        },
+        {
+          "text": "scheme",
+          "correct": false
+        },
+        {
+          "text": "action",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "Glob patterns are used to target multiple branches or tags with the `push` event trigger.",
+      "link": "https://docs.github.com/en/actions/using-workflows/triggering-a-workflow#using-filters-to-target-specific-branches-or-tags-for-push-events"
+    },
+    {
+      "id": 20,
+      "title": "Question 020",
+      "question": "Which event allows you to manually trigger a workflow from the GitHub UI?",
+      "choices": [
+        {
+          "text": "workflow_dispatch",
+          "correct": true
+        },
+        {
+          "text": "manual_dispatch",
+          "correct": false
+        },
+        {
+          "text": "workflow_trigger",
+          "correct": false
+        },
+        {
+          "text": "manual_trigger",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `workflow_dispatch` event allows you to manually trigger a workflow.",
+      "link": "https://docs.github.com/en/actions/using-workflows/manually-running-a-workflow"
+    },
+    {
+      "id": 21,
+      "title": "Question 021",
+      "question": "What are the possible types of an input variable for a manually triggered workflow? (Select five.)",
+      "choices": [
+        {
+          "text": "choice",
+          "correct": true
+        },
+        {
+          "text": "boolean",
+          "correct": true
+        },
+        {
+          "text": "string",
+          "correct": true
+        },
+        {
+          "text": "number",
+          "correct": true
+        },
+        {
+          "text": "environment",
+          "correct": true
+        },
+        {
+          "text": "dropdown",
+          "correct": false
+        },
+        {
+          "text": "select",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": true,
+      "explanation": "The possible input types for a manually triggered workflow are: `choice`, `boolean`, `string`, `number`, and `environment`.",
+      "link": "https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#onworkflow_dispatchinputsinput_idtype"
+    },
+    {
+      "id": 22,
+      "title": "Question 022",
+      "question": "A workflow that has only `workflow_dispatch` event trigger can be triggered using GitHub's REST API",
+      "choices": [
+        {
+          "text": "True",
+          "correct": true
+        },
+        {
+          "text": "False",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "You can trigger a `workflow_dispatch` event using the REST API.",
+      "link": "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_dispatchinputs"
+    },
+    {
+      "id": 23,
+      "title": "Question 023",
+      "question": "To stop a workflow from running temporarily without modifying the source code you should",
+      "choices": [
+        {
+          "text": "Use the `Disable workflow` option in GitHub Actions",
+          "correct": true
+        },
+        {
+          "text": "Remove secrets that are required for this workflow",
+          "correct": false
+        },
+        {
+          "text": "Delete environment that is required for this workflow",
+          "correct": false
+        },
+        {
+          "text": "Prevent any new commits to main branch",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "You can temporarily disable a workflow from the GitHub Actions UI.",
+      "link": "https://docs.github.com/en/actions/using-workflows/disabling-and-enabling-a-workflow"
+    },
+    {
+      "id": 24,
+      "title": "Question 024",
+      "question": "What are `activity types` of an event used for ?",
+      "choices": [
+        {
+          "text": "Limiting workflow runs to specific activity types using the `types` filter",
+          "correct": true
+        },
+        {
+          "text": "Checking if the activity comes from an user or a bot",
+          "correct": false
+        },
+        {
+          "text": "Reacting to new activity on a repository (e.g new contributor)",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "Activity types are used with the `types` filter to limit when a workflow runs based on the specific action that triggered the event.",
+      "link": "https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#about-events-that-trigger-workflows"
+    },
+    {
+      "id": 25,
+      "title": "Question 025",
+      "question": "You want to create a reusable workflow `CI` that runs some quality checks, linting and tests on code changes. What event trigger should the `CI` workflow define to allow reusing it in other workflows?",
+      "choices": [
+        {
+          "text": "workflow_call",
+          "correct": true
+        },
+        {
+          "text": "workflow_trigger",
+          "correct": false
+        },
+        {
+          "text": "workflow_dispatch",
+          "correct": false
+        },
+        {
+          "text": "workflow_run",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `workflow_call` event trigger is used to create a reusable workflow.",
+      "link": "https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows"
+    },
+    {
+      "id": 26,
+      "title": "Question 026",
+      "question": "A reusable workflow named `build` creates zip file artifacts. How do you pass the zip file location to the caller workflow that is calling the `build` workflow? (Select three.)",
+      "choices": [
+        {
+          "text": "You define an output on workflow level in the `build` workflow",
+          "correct": true
+        },
+        {
+          "text": "You define an output on job level in the `build` workflow",
+          "correct": true
+        },
+        {
+          "text": "In the `build` workflow you write the output into `$GITHUB_OUTPUT` in one of the steps",
+          "correct": true
+        },
+        {
+          "text": "All outputs are automatically passed to the caller workflows",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": true,
+      "explanation": "You can pass outputs from a reusable workflow to a caller workflow by defining outputs at the workflow or job level, and by writing to `$GITHUB_OUTPUT` in a step.",
+      "link": "https://docs.github.com/en/actions/using-workflows/reusing-workflows#using-outputs-from-a-reusable-workflow"
+    },
+    {
+      "id": 27,
+      "title": "Question 027",
+      "question": "What are the valid use cases for using **defaults**? (Select two.)",
+      "choices": [
+        {
+          "text": "Using defaults.run on workflow level to set default shell (e.g bash) for an entire workflow",
+          "correct": true
+        },
+        {
+          "text": "Using defaults.run on job level to set default working-directory for all steps in a single job",
+          "correct": true
+        },
+        {
+          "text": "Using defaults.run on step level to set default shell (e.g bash) for that single step",
+          "correct": false
+        },
+        {
+          "text": "Using defaults.env on workflow level to set default environment variables for an entire workflow",
+          "correct": false
+        },
+        {
+          "text": "Using defaults.env on job level to set default environment variables for all steps in a single job",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": true,
+      "explanation": "The `defaults` key can be used at the workflow or job level to set default `run` settings, such as `shell` and `working-directory`.",
+      "link": "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#defaults"
+    },
+    {
+      "id": 28,
+      "title": "Question 028",
+      "question": "How can you ensure that a workflow called `Deploy Prod` is always running at most one at a time?",
+      "choices": [
+        {
+          "text": "Use `concurrency` on workflow level",
+          "correct": true
+        },
+        {
+          "text": "Use `queue` on workflow level",
+          "correct": false
+        },
+        {
+          "text": "Use `order` on workflow level",
+          "correct": false
+        },
+        {
+          "text": "Use `parallel` on workflow level",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `concurrency` key can be used at the workflow level to ensure that only one run of the workflow is active at a time.",
+      "link": "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#concurrency"
+    },
+    {
+      "id": 29,
+      "title": "Question 029",
+      "question": "Your Pull Request analysis workflow uses multiple code analysis tools and takes about 20minutes to fully complete. It is triggered on `pull_request` event with `branches` filter set to `master`. Therefore if a developer pushes multiple commits within few minutes multiple workflows are running in parallel. How can you stop all previous workflow runs and only run the one with latest changes?",
+      "choices": [
+        {
+          "text": "Use concurrency with cancel-in-progress",
+          "correct": true
+        },
+        {
+          "text": "Use concurrency",
+          "correct": false
+        },
+        {
+          "text": "Use activity types filter",
+          "correct": false
+        },
+        {
+          "text": "Use cancel-in-progress flag for `pull_request` event",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `concurrency` key with `cancel-in-progress: true` will cancel any in-progress runs of the same workflow on the same branch.",
+      "link": "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#example-using-concurrency-to-cancel-any-in-progress-job-or-run"
+    },
+    {
+      "id": 30,
+      "title": "Question 030",
+      "question": "When will job3 run?",
+      "choices": [
+        {
+          "text": "job3 will run after job1 and job2 have completed, regardless of whether they were successful",
+          "correct": true
+        },
+        {
+          "text": "You cannot use `if: ${{ always() }}` and `needs` together. The workflow will fail on startup.",
+          "correct": false
+        },
+        {
+          "text": "job3 will run after job1 and job2 have been successfully completed",
+          "correct": false
+        },
+        {
+          "text": "job3 will run after both job1 and job2 have failed",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `always()` function ensures that the job will run regardless of the success or failure of its dependencies.",
+      "link": "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#example-not-requiring-successful-dependent-jobs"
+    },
+    {
+      "id": 31,
+      "title": "Question 031",
+      "question": "What `jobs.job_id.if` conditional will make sure that job `production-deploy` is triggered only on `my-org/my-repo` repository? (Select two.)",
+      "choices": [
+        {
+          "text": "if: github.repository == 'my-org/my-repo'",
+          "correct": true
+        },
+        {
+          "text": "if: ${{ github.repository == 'my-org/my-repo' }}",
+          "correct": true
+        },
+        {
+          "text": "if: ${{ github.organization == 'my-org' && github.repository == 'my-repo' }}",
+          "correct": false
+        },
+        {
+          "text": "if: ${{ github.org == 'my-org' && github.repository == 'my-repo' }}",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": true,
+      "explanation": "You can use the `github.repository` context to check the repository name.",
+      "link": "https://docs.github.com/en/actions/learn-github-actions/contexts#github-context"
+    },
+    {
+      "id": 32,
+      "title": "Question 032",
+      "question": "What GitHub-hosted runner types are available to use? (Select three.)",
+      "choices": [
+        {
+          "text": "Windows",
+          "correct": true
+        },
+        {
+          "text": "Ubuntu Linux",
+          "correct": true
+        },
+        {
+          "text": "macOS",
+          "correct": true
+        },
+        {
+          "text": "Android",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": true,
+      "explanation": "GitHub provides runners for Windows, Linux (Ubuntu), and macOS.",
+      "link": "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#choosing-github-hosted-runners"
+    },
+    {
+      "id": 33,
+      "title": "Question 033",
+      "question": "Is this statement true? `Not all steps run actions, but all actions run as a step`",
+      "choices": [
+        {
+          "text": "True",
+          "correct": true
+        },
+        {
+          "text": "False",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "A step can run a command or an action. An action is always run as a step.",
+      "link": "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsteps"
+    },
+    {
+      "id": 34,
+      "title": "Question 034",
+      "question": "For any action published in GitHub Marketplace, you can often use it in multiple versions, which approach is the most stable and secure?",
+      "choices": [
+        {
+          "text": "Reference the commit SHA",
+          "correct": true
+        },
+        {
+          "text": "Reference a version tag",
+          "correct": false
+        },
+        {
+          "text": "Reference the main branch",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "Referencing the commit SHA is the most stable and secure way to use an action, as it ensures you are using a specific, immutable version.",
+      "link": "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#example-using-versioned-actions"
+    },
+    {
+      "id": 35,
+      "title": "Question 035",
+      "question": "To prevent a job from failure when one of the steps fails you can include:",
+      "choices": [
+        {
+          "text": "`continue-on-error` flag in the failing step",
+          "correct": true
+        },
+        {
+          "text": "`ignore-error` flag in the failing step",
+          "correct": false
+        },
+        {
+          "text": "`failure()` conditional in the failing step",
+          "correct": false
+        },
+        {
+          "text": "`always()` conditional in the failing step",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `continue-on-error` flag in a step will prevent the job from failing if that step fails.",
+      "link": "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepscontinue-on-error"
+    },
+    {
+      "id": 36,
+      "title": "Question 036",
+      "question": "You defined a matrix job `example_matrix`. How can limit the matrix to run a maximum of 2 jobs at a time?",
+      "choices": [
+        {
+          "text": "Set `jobs.example_matrix.strategy.max-parallel` to 2",
+          "correct": true
+        },
+        {
+          "text": "Set `jobs.example_matrix.strategy.concurrency` to 2",
+          "correct": false
+        },
+        {
+          "text": "Use GitHub's REST API to check if the job count is lesser than 2",
+          "correct": false
+        },
+        {
+          "text": "It's not possible, a matrix will always run all of the jobs in parallel if there are runners available",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `max-parallel` key in the strategy is used to limit the number of concurrent jobs in a matrix.",
+      "link": "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategymax-parallel"
+    },
+    {
+      "id": 37,
+      "title": "Question 037",
+      "question": "Which of these is a proper way of setting an output parameter `PET` with a value of `DOG` in a `step`.",
+      "choices": [
+        {
+          "text": "`echo \"PET=DOG\" >> \"$GITHUB_OUTPUT\"`",
+          "correct": true
+        },
+        {
+          "text": "`echo \"DOG=PET\" >> \"$GITHUB_OUTPUT\"`",
+          "correct": false
+        },
+        {
+          "text": "`gh set-output \"DOG=PET\"`",
+          "correct": false
+        },
+        {
+          "text": "`gh set-output \"PET=DOG\"`",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "To set an output parameter, you write to the `$GITHUB_OUTPUT` environment file with the format `key=value`.",
+      "link": "https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#setting-an-output-parameter"
+    },
+    {
+      "id": 38,
+      "title": "Question 038",
+      "question": "Which of these is a way of using `action_state` in `step_two`?",
+      "choices": [
+        {
+          "text": "`run: echo \"$action_state\"`",
+          "correct": true
+        },
+        {
+          "text": "`run: echo \"${{ steps.step_one.outputs.action_state }}\"`",
+          "correct": false
+        },
+        {
+          "text": "`run: echo \"$steps.step_one.outputs.action_state\"`",
+          "correct": false
+        },
+        {
+          "text": "`run: echo \"${{ action_state }}\"`",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "When an environment variable is set using `$GITHUB_ENV`, it can be accessed directly in subsequent steps of the same job.",
+      "link": "https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#example-of-writing-an-environment-variable-to-github_env"
+    },
+    {
+      "id": 39,
+      "title": "Question 039",
+      "question": "Is this statement true? `Workflows can be reused, but a reusable workflow cannot call another reusable workflow.`",
+      "choices": [
+        {
+          "text": "False",
+          "correct": true
+        },
+        {
+          "text": "True",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "Reusable workflows can be nested, but there are some limitations.",
+      "link": "https://docs.github.com/en/actions/using-workflows/reusing-workflows#nesting-reusable-workflows"
+    },
+    {
+      "id": 40,
+      "title": "Question 040",
+      "question": "In the following example, `workflow A` passes all of its secrets to `workflow B`, by using the inherit keyword. Then `workflow B` calls `workflow C`. Which statement regarding `secrets` is true for that example?",
+      "choices": [
+        {
+          "text": "All secrets available to `workflow A` will be also available to `workflow B`, but not to `workflow C`",
+          "correct": true
+        },
+        {
+          "text": "All secrets from `octo-org` organization and `octo-org/example-repo` repository will be available to `workflow B`, but not to `workflow C`",
+          "correct": false
+        },
+        {
+          "text": "All secrets available to `workflow A` will be also available to `workflow B` and `workflow C`",
+          "correct": false
+        },
+        {
+          "text": "Only repository and environment secrets available to `workflow A` will be available to `workflow B`, but not to `workflow C`. Organization scoped secrets cannot be inherited",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "Secrets must be explicitly passed to each nested workflow.",
+      "link": "https://docs.github.com/en/actions/using-workflows/reusing-workflows#passing-secrets-to-nested-workflows"
+    },
+    {
+      "id": 41,
+      "title": "Question 041",
+      "question": "When should you use `caching`?",
+      "choices": [
+        {
+          "text": "When you want to reuse files that don't change often between jobs or workflow runs, such as build dependencies from a package management system.",
+          "correct": true
+        },
+        {
+          "text": "When you want to reuse files that do change often between jobs or workflow runs, such as build dependencies from a package management system.",
+          "correct": false
+        },
+        {
+          "text": "When you want to save files produced by a job to view after a workflow run has ended, such as built binaries or build logs.",
+          "correct": false
+        },
+        {
+          "text": "When you want to save binaries produced by a build job to use in a subsequent deploy job to deploy a new version of an application",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "Caching is ideal for reusing files that don't change often, such as build dependencies.",
+      "link": "https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows#comparing-artifacts-and-dependency-caching"
+    },
+    {
+      "id": 42,
+      "title": "Question 042",
+      "question": "When should you use `artifacts`? (Select two.)",
+      "choices": [
+        {
+          "text": "Use artifacts to save files produced by a job to view after a workflow run has ended, such as test results or build logs.",
+          "correct": true
+        },
+        {
+          "text": "Use artifacts to save binaries produced by a build job to use in a subsequent deploy job to deploy a new version of an application",
+          "correct": true
+        },
+        {
+          "text": "Use artifacts to reuse files that don't change often between jobs or workflow runs, such as build dependencies from a package management system.",
+          "correct": false
+        },
+        {
+          "text": "Use artifacts to create new versions of your application together with release notes, mentions and/or contributors",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": true,
+      "explanation": "Artifacts are used to save files produced during a workflow run and to pass data between jobs.",
+      "link": "https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts#about-workflow-artifacts"
+    },
+    {
+      "id": 43,
+      "title": "Question 043",
+      "question": "If a workflow runs on a `feature-a` branch, can it restore `caches` created in the default `main` branch?",
+      "choices": [
+        {
+          "text": "Yes, all branches can restore caches created on the default branch",
+          "correct": true
+        },
+        {
+          "text": "Yes, all caches can be accessed by workflows on any branch within the same repository",
+          "correct": false
+        },
+        {
+          "text": "No, caches can only be restored from the same branch",
+          "correct": false
+        },
+        {
+          "text": "Yes but only if no files were changed on `feature-a` branch",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "A workflow can restore caches created on the default branch.",
+      "link": "https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows#restrictions-for-accessing-a-cache"
+    },
+    {
+      "id": 44,
+      "title": "Question 044",
+      "question": "To access an `artifact` that was created in another, previously triggered workflow run you can:",
+      "choices": [
+        {
+          "text": "You cannot access `artifacts` that were created in a different workflow run",
+          "correct": true
+        },
+        {
+          "text": "Use the `actions/download-artifact` action.",
+          "correct": false
+        },
+        {
+          "text": "Use the `actions/upload-artifact` action.",
+          "correct": false
+        },
+        {
+          "text": "Use the `actions/download-artifact` action and make sure the artifact is not expired",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "Artifacts are only available to the workflow run that created them.",
+      "link": "https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts#about-workflow-artifacts"
+    },
+    {
+      "id": 45,
+      "title": "Question 045",
+      "question": "What should you use to store coverage reports or screenshots generated during a workflow that runs automated testing for a repository?",
+      "choices": [
+        {
+          "text": "Artifacts",
+          "correct": true
+        },
+        {
+          "text": "Caches",
+          "correct": false
+        },
+        {
+          "text": "Packages",
+          "correct": false
+        },
+        {
+          "text": "Releases",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "Artifacts are ideal for storing files generated during a workflow run, such as test reports and screenshots.",
+      "link": "https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts#comparing-artifacts-and-dependency-caching"
+    },
+    {
+      "id": 46,
+      "title": "Question 046",
+      "question": "You can only upload a single file at a time when using `actions/upload-artifact` action",
+      "choices": [
+        {
+          "text": "False",
+          "correct": true
+        },
+        {
+          "text": "True",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "You can upload multiple files at once using the `actions/upload-artifact` action.",
+      "link": "https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts#uploading-build-and-test-artifacts"
+    },
+    {
+      "id": 47,
+      "title": "Question 047",
+      "question": "In job `deploy`, if you want to access binaries (containing your application) that were created in job `build` you should",
+      "choices": [
+        {
+          "text": "upload the binaries as artifacts in `build` and download them in `deploy`",
+          "correct": true
+        },
+        {
+          "text": "upload the binaries as artifacts in `deploy` and download them in `build`",
+          "correct": false
+        },
+        {
+          "text": "cache the binaries in `build` and read the files from cache in `deploy`",
+          "correct": false
+        },
+        {
+          "text": "cache the binaries in `deploy` and read the files from cache in `build`",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "To share files between jobs, you should upload them as artifacts in the first job and download them in the second.",
+      "link": "https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts#comparing-artifacts-and-dependency-caching"
+    },
+    {
+      "id": 48,
+      "title": "Question 048",
+      "question": "A job called `job2` is using artifacts created in `job1`. Therefore it's important to make sure `job1` finishes before `job2` starts looking for the artifacts. How should you create that dependency?",
+      "choices": [
+        {
+          "text": "create this dependency using the `needs` keyword in `job2`",
+          "correct": true
+        },
+        {
+          "text": "this dependency is created implicitly when using `actions/download-artifact` to download artifact from `job1`",
+          "correct": false
+        },
+        {
+          "text": "create this dependency by defining `job2` after `job1` in the workflow's `.yaml` definition",
+          "correct": false
+        },
+        {
+          "text": "create this dependency using the `concurrency` keyword in `job2`",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `needs` keyword is used to create a dependency between jobs, ensuring that one job finishes before another one starts.",
+      "link": "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds"
+    },
+    {
+      "id": 49,
+      "title": "Question 049",
+      "question": "Which is true about `Starter Workflows` ? (Select three.)",
+      "choices": [
+        {
+          "text": "They allow users to leverage ready-to-use (or requiring minimal changes) workflow templates",
+          "correct": true
+        },
+        {
+          "text": "GitHub provides and maintains starter workflows for different categories, languages and tooling",
+          "correct": true
+        },
+        {
+          "text": "Your organization can create custom starter workflows for users in your organization",
+          "correct": true
+        },
+        {
+          "text": "Starter workflows cannot call reusable workflows",
+          "correct": false
+        },
+        {
+          "text": "Starter workflows are a paid GitHub feature",
+          "correct": false
+        },
+        {
+          "text": "Starter workflows are provided ready-to-use and cannot be modified or enhanced",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": true,
+      "explanation": "Starter workflows are templates that can be used to quickly create new workflows. GitHub provides a set of starter workflows, and organizations can create their own.",
+      "link": "https://docs.github.com/en/actions/using-workflows/creating-starter-workflows-for-your-organization"
+    },
+    {
+      "id": 50,
+      "title": "Question 050",
+      "question": "Secrets and configuration variables can be scoped to: (Select three.)",
+      "choices": [
+        {
+          "text": "The entire organization, or selected repositories in an organization",
+          "correct": true
+        },
+        {
+          "text": "A single repository",
+          "correct": true
+        },
+        {
+          "text": "An environment in a repository",
+          "correct": true
+        },
+        {
+          "text": "An environment shared across multiple repositories",
+          "correct": false
+        },
+        {
+          "text": "Multiple repositories that do not share an organization/enterprise",
+          "correct": false
+        },
+        {
+          "text": "A specific workflow in a repository",
+          "correct": false
+        },
+        {
+          "text": "A specific job in a workflow",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": true,
+      "explanation": "Secrets and configuration variables can be scoped at the organization, repository, and environment levels.",
+      "link": "https://docs.github.com/en/actions/using-workflows/sharing-workflows-secrets-and-runners-with-your-organization#sharing-secrets-and-variables-within-an-organization"
+    },
+    {
+      "id": 51,
+      "title": "Question 051",
+      "question": "What are the three types of Actions?",
+      "choices": [
+        {
+          "text": "`Docker container actions`, `JavaScript Actions`, `Composite Actions`",
+          "correct": true
+        },
+        {
+          "text": "`Python Actions`, `JavaScript Actions`, `Custom Actions`",
+          "correct": false
+        },
+        {
+          "text": "`Docker container Actions`, `JavaScript Actions`, `Custom Actions`",
+          "correct": false
+        },
+        {
+          "text": "`Docker container actions`, `Java Actions`, `Composite Actions`",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The three types of actions are Docker container actions, JavaScript actions, and composite actions.",
+      "link": "https://docs.github.com/en/actions/creating-actions/about-custom-actions#types-of-actions"
+    },
+    {
+      "id": 52,
+      "title": "Question 052",
+      "question": "Is this statement true? `Docker container actions are usually slower than JavaScript actions`",
+      "choices": [
+        {
+          "text": "True",
+          "correct": true
+        },
+        {
+          "text": "False",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "Because of the latency to build and retrieve the container, Docker container actions are slower than JavaScript actions.",
+      "link": "https://docs.github.com/en/actions/creating-actions/about-custom-actions#docker-container-actions"
+    },
+    {
+      "id": 53,
+      "title": "Question 053",
+      "question": "When creating a custom GitHub Action you have to store the source code in `.github/workflows` directory",
+      "choices": [
+        {
+          "text": "False",
+          "correct": true
+        },
+        {
+          "text": "True",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "Workflows are stored in the `.github/workflows` directory, but custom actions can be stored in any location in the repository.",
+      "link": "https://docs.github.com/en/actions/creating-actions/about-custom-actions#choosing-a-location-for-your-action"
+    },
+    {
+      "id": 54,
+      "title": "Question 054",
+      "question": "When creating custom GitHub Actions - in what file does all the action `metadata` have to be defined?",
+      "choices": [
+        {
+          "text": "In the `action.yml` or `action.yaml` file in the action repository",
+          "correct": true
+        },
+        {
+          "text": "In the repository `README` file",
+          "correct": false
+        },
+        {
+          "text": "It's edited in GitHub Marketplace UI when published for sharing",
+          "correct": false
+        },
+        {
+          "text": "In the `action.yml` or `action.yaml` file in the action repository, but it is not required if the action is not meant to be shared and used by the public",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "All actions must have a metadata file named `action.yml` or `action.yaml`.",
+      "link": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions"
+    },
+    {
+      "id": 55,
+      "title": "Question 055",
+      "question": "A workflow was initially run on `commit A` and failed. You fixed the workflow with the subsequent `commit B`. When you re-run that workflow it will run with code from which commit?",
+      "choices": [
+        {
+          "text": "It will run with code from `commit A`",
+          "correct": true
+        },
+        {
+          "text": "It will run with code from `commit B`",
+          "correct": false
+        },
+        {
+          "text": "You cannot re-run workflows in GitHub Actions. You have to trigger a new workflow which will run with latest changes",
+          "correct": false
+        },
+        {
+          "text": "It will trigger two workflows, one with code from `commit A` and one with code from `commit B`",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "Re-running a workflow uses the same commit SHA and Git ref of the original event that triggered the workflow run.",
+      "link": "https://docs.github.com/en/actions/managing-workflow-runs/re-running-workflows-and-jobs#about-re-running-workflows-and-jobs"
+    },
+    {
+      "id": 56,
+      "title": "Question 056",
+      "question": "How can you require manual approvals by a maintainer if the workflow run is targeting the `production` environment?",
+      "choices": [
+        {
+          "text": "Using deployment protection rules",
+          "correct": true
+        },
+        {
+          "text": "Setting the required reviewers in the `production` workflow",
+          "correct": false
+        },
+        {
+          "text": "Using branch protection rules",
+          "correct": false
+        },
+        {
+          "text": "Manual approvals are not supported by GitHub Actions",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "Deployment protection rules can be used to require manual approval for a deployment to a specific environment.",
+      "link": "https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment"
+    },
+    {
+      "id": 57,
+      "title": "Question 057",
+      "question": "Which is true about environments?",
+      "choices": [
+        {
+          "text": "Each job in a workflow can reference a single environment.",
+          "correct": true
+        },
+        {
+          "text": "Each workflow can reference a single environment.",
+          "correct": false
+        },
+        {
+          "text": "Each job in a workflow can reference a maximum of two environments.",
+          "correct": false
+        },
+        {
+          "text": "Each workflow can reference a maximum of two environments.",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "Each job in a workflow can reference a single environment.",
+      "link": "https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#about-environments"
+    },
+    {
+      "id": 58,
+      "title": "Question 058",
+      "question": "When using GitHub Actions to access resources in one of the cloud providers (such as AWS, Azure or GCP) the safest and recommended way to authenticate is",
+      "choices": [
+        {
+          "text": "Using OIDC",
+          "correct": true
+        },
+        {
+          "text": "Using Vault",
+          "correct": false
+        },
+        {
+          "text": "Storing access keys in `secrets`",
+          "correct": false
+        },
+        {
+          "text": "Storing access keys in `variables`",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "OpenID Connect (OIDC) is the recommended way to authenticate to cloud providers from GitHub Actions, as it avoids the need to store long-lived credentials as secrets.",
+      "link": "https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect"
+    },
+    {
+      "id": 59,
+      "title": "Question 059",
+      "question": "Your open-source publicly available repository contains a workflow with a `pull_request` event trigger. How can you require approvals for workflow runs triggered from forks of your repository?",
+      "choices": [
+        {
+          "text": "Setup required approvals for fork runs in the repository",
+          "correct": true
+        },
+        {
+          "text": "Setup deployment protection rules for the repository",
+          "correct": false
+        },
+        {
+          "text": "Setup branch protection rules for the repository",
+          "correct": false
+        },
+        {
+          "text": "The workflow will not trigger for forks if using `pull_request` event. If you want to do that you should use `fork_pull_request` event trigger with `require-approval` flag.",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "You can require approvals for workflow runs from forks in the repository settings.",
+      "link": "https://docs.github.com/en/actions/managing-workflow-runs/approving-workflow-runs-from-public-forks#about-workflow-runs-from-public-forks"
+    },
+    {
+      "id": 60,
+      "title": "Question 060",
+      "question": "Which of the following default environment variables contains the name of the person or app that initiated the workflow run?",
+      "choices": [
+        {
+          "text": "`GITHUB_USER`",
+          "correct": false
+        },
+        {
+          "text": "`GITHUB_REPOSITORY`",
+          "correct": false
+        },
+        {
+          "text": "`GITHUB_WORKFLOW`",
+          "correct": false
+        },
+        {
+          "text": "`GITHUB_ACTOR`",
+          "correct": true
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `GITHUB_ACTOR` environment variable contains the name of the person or app that initiated the workflow.",
+      "link": "https://docs.github.com/en/actions/reference/environment-variables#default-environment-variables"
+    },
+    {
+      "id": 61,
+      "title": "Question 061",
+      "question": "Which of the following are default environment variables in GitHub Actions? (Select three.)",
+      "choices": [
+        {
+          "text": "`GITHUB_REPOSITORY`",
+          "correct": true
+        },
+        {
+          "text": "`GITHUB_WORKFLOW`",
+          "correct": true
+        },
+        {
+          "text": "`GITHUB_ACTOR`",
+          "correct": true
+        },
+        {
+          "text": "`GITHUB_USER`",
+          "correct": false
+        },
+        {
+          "text": "`GITHUB_ORGANIZATION`",
+          "correct": false
+        },
+        {
+          "text": "`GITHUB_TOKEN`",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": true,
+      "explanation": "`GITHUB_REPOSITORY`, `GITHUB_WORKFLOW`, and `GITHUB_ACTOR` are all default environment variables.",
+      "link": "https://docs.github.com/en/actions/reference/environment-variables#default-environment-variables"
+    },
+    {
+      "id": 62,
+      "title": "Question 062",
+      "question": "Your organization defines a secret `SomeSecret`, however when you reference that secret in a workflow using `${{ secrets.SomeSecret }}` it provides a different value than expected. What may be the reason for that?",
+      "choices": [
+        {
+          "text": "The secret `SomeSecret` is also declared in repository scope",
+          "correct": true
+        },
+        {
+          "text": "The secret `SomeSecret` is also declared in enterprise scope",
+          "correct": false
+        },
+        {
+          "text": "`${{ secrets.SomeSecret }}` expression is only used for repository scoped secrets",
+          "correct": false
+        },
+        {
+          "text": "You need to use the GitHub API to access organization scoped secrets",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "If a secret with the same name exists at multiple levels, the secret at the lowest level takes precedence. In this case, the repository-level secret is overriding the organization-level secret.",
+      "link": "https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#naming-your-secrets"
+    },
+    {
+      "id": 63,
+      "title": "Question 063",
+      "question": "Which is a correct way to print a debug message?",
+      "choices": [
+        {
+          "text": "`echo \"::debug::Watch out here!\"`",
+          "correct": true
+        },
+        {
+          "text": "`echo \":debug:Watch out here!\"`",
+          "correct": false
+        },
+        {
+          "text": "`echo \"::debug::message=Watch out here!\"`",
+          "correct": false
+        },
+        {
+          "text": "`echo \"Watch out here!\" >> $GITHUB_DEBUG`",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "To print a debug message, you use the format `::debug::message`.",
+      "link": "https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#example-setting-a-debug-message"
+    },
+    {
+      "id": 64,
+      "title": "Question 064",
+      "question": "How can organizations which are using GitHub Enterprise Server enable automatic syncing of third party GitHub Actions hosted on GitHub.com to their GitHub Enterprise Server instance?",
+      "choices": [
+        {
+          "text": "Using GitHub Connect",
+          "correct": true
+        },
+        {
+          "text": "GitHub Enterprise Server has access to all GitHub.com Actions by default",
+          "correct": false
+        },
+        {
+          "text": "Using actions-sync tool",
+          "correct": false
+        },
+        {
+          "text": "GitHub Enterprise Server cannot use GitHub.com Actions because of it's on-premise nature and no internet access",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "GitHub Connect can be used to enable automatic access to GitHub.com Actions from GitHub Enterprise Server.",
+      "link": "https://docs.github.com/en/enterprise-server@3.6/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect"
+    },
+    {
+      "id": 65,
+      "title": "Question 065",
+      "question": "Where can you find network connectivity logs for a GitHub self-hosted-runner?",
+      "choices": [
+        {
+          "text": "In the `_diag` folder directly on the runner machine",
+          "correct": true
+        },
+        {
+          "text": "On GitHub.com on that specific Runner's page",
+          "correct": false
+        },
+        {
+          "text": "In the job run logs of a job that ran on that Runner",
+          "correct": false
+        },
+        {
+          "text": "In the job run logs of a job that ran on that Runner with debug logging enabled",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "Network connectivity logs for a self-hosted runner can be found in the `_diag` folder on the runner machine.",
+      "link": "https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-self-hosted-runner-network-connectivity"
+    },
+    {
+      "id": 66,
+      "title": "Question 066",
+      "question": "How can you validate that your GitHub self-hosted-runner can access all required GitHub services?",
+      "choices": [
+        {
+          "text": "Using a GitHub provided script on the runner machine",
+          "correct": true
+        },
+        {
+          "text": "By trying to access the runner machine by `ssh` to validate the network connectivity",
+          "correct": false
+        },
+        {
+          "text": "By using the predefined GitHub Actions workflow `network-connectivity.yml`",
+          "correct": false
+        },
+        {
+          "text": "GitHub will validate the network connectivity automatically when the runner application is installed on the runner machine",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "GitHub provides a script that can be run on the runner machine to validate network connectivity.",
+      "link": "https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-self-hosted-runner-network-connectivity"
+    },
+    {
+      "id": 67,
+      "title": "Question 067",
+      "question": "Which is the correct way of triggering a job only if configuration variable `MY_VAR` has the value of `MY_VALUE`?",
+      "choices": [
+        {
+          "text": "By creating the following conditional on job level",
+          "correct": true
+        },
+        {
+          "text": "By creating the following conditional on job level",
+          "correct": false
+        },
+        {
+          "text": "It's not possible because configuration variables cannot be used in `if` conditionals",
+          "correct": false
+        },
+        {
+          "text": "It's not possible because configuration variables cannot be used in job level `if` conditionals",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "You can use the `vars` context in an `if` conditional to check the value of a configuration variable.",
+      "link": "https://docs.github.com/en/actions/learn-github-actions/contexts#example-usage-of-the-vars-context"
+    },
+    {
+      "id": 68,
+      "title": "Question 068",
+      "question": "To run a `step` only if the secret `MY_SECRET` has been set, you can:",
+      "choices": [
+        {
+          "text": "Set the secret `MY_SECRET` as a job level environment variable, then reference that environment variable to conditionally run that step",
+          "correct": true
+        },
+        {
+          "text": "By creating the following conditional on job level",
+          "correct": false
+        },
+        {
+          "text": "By creating the following conditional on step level",
+          "correct": false
+        },
+        {
+          "text": "By creating the following conditional on step level",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "Secrets cannot be directly referenced in `if` conditionals. The recommended workaround is to set the secret as an environment variable and then check if the environment variable is set.",
+      "link": "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#example-using-secrets"
+    },
+    {
+      "id": 69,
+      "title": "Question 069",
+      "question": "How can you use the GitHub API to download workflow run logs?",
+      "choices": [
+        {
+          "text": "`GET /repos/{owner}/{repo}/actions/runs/{run_id}/logs`",
+          "correct": true
+        },
+        {
+          "text": "`POST /repos/{owner}/{repo}/actions/runs/{run_id}/logs`",
+          "correct": false
+        },
+        {
+          "text": "`HEAD /repos/{owner}/{repo}/actions/runs/{run_id}/logs`",
+          "correct": false
+        },
+        {
+          "text": "`PUT /repos/{owner}/{repo}/actions/runs/{run_id}/logs`",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "You can use a GET request to the `/repos/{owner}/{repo}/actions/runs/{run_id}/logs` endpoint to download workflow run logs.",
+      "link": "https://docs.github.com/en/rest/actions/workflow-runs?apiVersion=2022-11-28#download-workflow-run-logs"
+    },
+    {
+      "id": 70,
+      "title": "Question 070",
+      "question": "How can you use the GitHub API to create or update a repository secret?",
+      "choices": [
+        {
+          "text": "`PUT /repos/{owner}/{repo}/actions/secrets/{secret_name}`",
+          "correct": true
+        },
+        {
+          "text": "`POST /repos/{owner}/{repo}/actions/secrets/{secret_name}`",
+          "correct": false
+        },
+        {
+          "text": "`HEAD /repos/{owner}/{repo}/actions/secrets/{secret_name}`",
+          "correct": false
+        },
+        {
+          "text": "`GET /repos/{owner}/{repo}/actions/secrets/{secret_name}`",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "You can use a PUT request to the `/repos/{owner}/{repo}/actions/secrets/{secret_name}` endpoint to create or update a repository secret.",
+      "link": "https://docs.github.com/en/rest/actions/secrets?create-or-update-a-repository-secret=&apiVersion=2022-11-28#create-or-update-a-repository-secret"
+    },
+    {
+      "id": 71,
+      "title": "Question 071",
+      "question": "How can you override an organization-level GitHub Secret `API_KEY` with a different value when working within a repository? (Select two.)",
+      "choices": [
+        {
+          "text": "By creating a repository secret with the same name `API_KEY`",
+          "correct": true
+        },
+        {
+          "text": "By creating a environment secret with the same name `API_KEY`",
+          "correct": true
+        },
+        {
+          "text": "By creating a enterprise secret with the same name `API_KEY`",
+          "correct": false
+        },
+        {
+          "text": "By creating a enterprise secret with the name `OVERRIDE_API_KEY`",
+          "correct": false
+        },
+        {
+          "text": "By creating a repository secret with the name `OVERRIDE_API_KEY`",
+          "correct": false
+        },
+        {
+          "text": "By creating a environment secret with the name `OVERRIDE_API_KEY`",
+          "correct": false
+        },
+        {
+          "text": "By creating a repository secret with the name `REPOSITORY_API_KEY`",
+          "correct": false
+        },
+        {
+          "text": "By creating a environment secret with the name `ENVIRONMENT_API_KEY`",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": true,
+      "explanation": "Secrets at a lower level (repository or environment) will override secrets with the same name at a higher level (organization).",
+      "link": "https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#naming-your-secrets"
+    },
+    {
+      "id": 72,
+      "title": "Question 072",
+      "question": "What components can be reused within a GitHub Organization? (Select four.)",
+      "choices": [
+        {
+          "text": "Secrets",
+          "correct": true
+        },
+        {
+          "text": "Configuration Variables",
+          "correct": true
+        },
+        {
+          "text": "Self Hosted Runners",
+          "correct": true
+        },
+        {
+          "text": "Workflow Templates",
+          "correct": true
+        },
+        {
+          "text": "Artifacts",
+          "correct": false
+        },
+        {
+          "text": "Cache",
+          "correct": false
+        },
+        {
+          "text": "Environment Variables",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": true,
+      "explanation": "Secrets, configuration variables, self-hosted runners, and workflow templates can all be shared and reused within a GitHub organization.",
+      "link": "https://docs.github.com/en/actions"
+    },
+    {
+      "id": 73,
+      "title": "Question 073",
+      "question": "How many jobs will be executed in the following workflow?",
+      "choices": [
+        {
+          "text": "5",
+          "correct": true
+        },
+        {
+          "text": "4",
+          "correct": false
+        },
+        {
+          "text": "6",
+          "correct": false
+        },
+        {
+          "text": "7",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The matrix will generate 4 jobs (2 pets * 2 colors). The `include` key adds one additional job, for a total of 5.",
+      "link": "https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs#using-a-matrix-strategy"
+    },
+    {
+      "id": 74,
+      "title": "Question 074",
+      "question": "Which of the following default environment variables contains the full name (e.g `octocat/hello-world`) of the repository where the workflow is running?",
+      "choices": [
+        {
+          "text": "`GITHUB_REPOSITORY`",
+          "correct": true
+        },
+        {
+          "text": "`GITHUB_REPOSITORY_ID`",
+          "correct": false
+        },
+        {
+          "text": "`GITHUB_REPOSITORY_OWNER`",
+          "correct": false
+        },
+        {
+          "text": "`GITHUB_REPOSITORY_OWNER_ID`",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `GITHUB_REPOSITORY` environment variable contains the full name of the repository.",
+      "link": "https://docs.github.com/en/actions/reference/environment-variables#default-environment-variables"
+    },
+    {
+      "id": 75,
+      "title": "Question 075",
+      "question": "In a workflow that has multiple jobs, all running on GitHub-hosted runners, is it true that all jobs are guaranteed to run on the same runner machine?",
+      "choices": [
+        {
+          "text": "No",
+          "correct": true
+        },
+        {
+          "text": "Yes",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "Each job runs in a fresh instance of a runner image, so there is no guarantee that they will run on the same machine.",
+      "link": "https://docs.github.com/en/actions/using-jobs/choosing-the-runner-for-a-job#choosing-github-hosted-runners"
+    },
+    {
+      "id": 76,
+      "title": "Question 076",
+      "question": "What's the maximum amount of reusable workflows that can be called from a single workflow file?",
+      "choices": [
+        {
+          "text": "20",
+          "correct": true
+        },
+        {
+          "text": "5",
+          "correct": false
+        },
+        {
+          "text": "1",
+          "correct": false
+        },
+        {
+          "text": "10",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "A single workflow can call up to 20 reusable workflows.",
+      "link": "https://docs.github.com/en/actions/using-workflows/reusing-workflows#limitations"
+    },
+    {
+      "id": 77,
+      "title": "Question 077",
+      "question": "What is a self-hosted runner?",
+      "choices": [
+        {
+          "text": "A self-hosted runner is a system that you deploy and manage to execute jobs from GitHub Actions on GitHub.com",
+          "correct": true
+        },
+        {
+          "text": "A self-hosted runner is a system to upload code to a private server",
+          "correct": false
+        },
+        {
+          "text": "A self-hosted runner is a system to be able to create workloads automatically",
+          "correct": false
+        },
+        {
+          "text": "A self-hosted runner is a system to manage pull requests from users of the organization",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "A self-hosted runner is a system that you deploy and manage to execute jobs from GitHub Actions.",
+      "link": "https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners"
+    },
+    {
+      "id": 78,
+      "title": "Question 078",
+      "question": "Which of the following is a correct statement about GitHub Workflows and Actions?",
+      "choices": [
+        {
+          "text": "Each action is composed of one or more workflows which is composed of one or more jobs, and each job is composed of one or more step",
+          "correct": false
+        },
+        {
+          "text": "Each workflow is composed of one or more action which is composed of one or more jobs, and each job is composed of one or more step",
+          "correct": false
+        },
+        {
+          "text": "Each workflow is composed of one or more job which is composed of one or more step, and each step is an action or a script",
+          "correct": true
+        },
+        {
+          "text": "Each action is composed of one or more job which is composed of one or more step, and each step is a workflow",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "A workflow is composed of one or more jobs, each job is composed of one or more steps, and each step can be an action or a script.",
+      "link": "https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions"
+    },
+    {
+      "id": 79,
+      "title": "Question 079",
+      "question": "On which commit and branch do scheduled workflows run in GitHub Actions?",
+      "choices": [
+        {
+          "text": "Scheduled workflows run on the specific commit on last modified branch.",
+          "correct": false
+        },
+        {
+          "text": "Scheduled workflows run on the specific commit on the main branch.",
+          "correct": false
+        },
+        {
+          "text": "Scheduled workflows run on the latest commit on the repository default branch.",
+          "correct": true
+        },
+        {
+          "text": "Scheduled workflows run on the latest commit on the main branch.",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "Scheduled workflows run on the latest commit on the repository's default branch.",
+      "link": "https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule"
+    },
+    {
+      "id": 80,
+      "title": "Question 080",
+      "question": "What is the correct syntax for setting the directory for all `run` commands in a workflow?",
+      "choices": [
+        {
+          "text": "set `working-directory` under `defaults.run`",
+          "correct": true
+        },
+        {
+          "text": "set `directory` under `defaults.run`",
+          "correct": false
+        },
+        {
+          "text": "set `working-directory` under `job`",
+          "correct": false
+        },
+        {
+          "text": "set `directory` under `job`",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "You can set the default working directory for all `run` commands in a workflow by using the `defaults.run.working-directory` key.",
+      "link": "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#defaultsrunworking-directory"
+    },
+    {
+      "id": 81,
+      "title": "Question 081",
+      "question": "How can you reuse a defined workflow in multiple repositories? (Choose two.)",
+      "choices": [
+        {
+          "text": "By copying the workflow file to each repository",
+          "correct": false
+        },
+        {
+          "text": "By using workflow templates",
+          "correct": true
+        },
+        {
+          "text": "By creating a reusable action",
+          "correct": false
+        },
+        {
+          "text": "By defining the workflow in a central repository",
+          "correct": true
+        }
+      ],
+      "isMultipleChoice": true,
+      "explanation": "You can reuse workflows by creating workflow templates or by defining the workflow in a central repository and calling it from other repositories.",
+      "link": "https://docs.github.com/en/actions/using-workflows/creating-starter-workflows-for-your-organization"
+    },
+    {
+      "id": 82,
+      "title": "Question 082",
+      "question": "How can you ensure a job runs only on a specific branch?",
+      "choices": [
+        {
+          "text": "By using the branches filter",
+          "correct": true
+        },
+        {
+          "text": "By using the runs-on filter",
+          "correct": false
+        },
+        {
+          "text": "By using the jobs filter",
+          "correct": false
+        },
+        {
+          "text": "By using the branch keyword",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `branches` filter is used to specify which branches a workflow should run on.",
+      "link": "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#using-filters"
+    },
+    {
+      "id": 83,
+      "title": "Question 083",
+      "question": "What does the `needs` keyword do in a GitHub Actions workflow?",
+      "choices": [
+        {
+          "text": "Specifies the dependencies of a job",
+          "correct": true
+        },
+        {
+          "text": "Defines environment variables",
+          "correct": false
+        },
+        {
+          "text": "Sets up the environment",
+          "correct": false
+        },
+        {
+          "text": "Triggers a job based on an event",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `needs` keyword is used to specify that a job depends on another job.",
+      "link": "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds"
+    },
+    {
+      "id": 84,
+      "title": "Question 084",
+      "question": "Which keyword allows you to define environment variables in a GitHub Actions workflow?",
+      "choices": [
+        {
+          "text": "env",
+          "correct": true
+        },
+        {
+          "text": "vars",
+          "correct": false
+        },
+        {
+          "text": "secrets",
+          "correct": false
+        },
+        {
+          "text": "config",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `env` keyword is used to define environment variables.",
+      "link": "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idenv"
+    },
+    {
+      "id": 85,
+      "title": "Question 085",
+      "question": "What is the purpose of the `with` keyword in a GitHub Actions workflow?",
+      "choices": [
+        {
+          "text": "To define environment variables",
+          "correct": false
+        },
+        {
+          "text": "To specify input parameters for an action",
+          "correct": true
+        },
+        {
+          "text": "To set up dependencies",
+          "correct": false
+        },
+        {
+          "text": "To trigger another workflow",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `with` keyword is used to specify input parameters for an action.",
+      "link": "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepswith"
+    },
+    {
+      "id": 86,
+      "title": "Question 086",
+      "question": "Which of the following GitHub Actions syntax is used to run multiple commands in a single step?",
+      "choices": [
+        {
+          "text": "Using && to chain commands",
+          "correct": false
+        },
+        {
+          "text": "Defining commands in an array",
+          "correct": false
+        },
+        {
+          "text": "Using a multiline string with |",
+          "correct": true
+        },
+        {
+          "text": "Separating commands with a semicolon ;",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "You can use a multiline string with the `|` character to run multiple commands in a single step.",
+      "link": "https://docs.github.com/en/enterprise-cloud@latest/actions/using-workflows/workflow-commands-for-github-actions#example-of-a-multiline-string"
+    },
+    {
+      "id": 87,
+      "title": "Question 087",
+      "question": "How can you cache dependencies to speed up workflow execution?",
+      "choices": [
+        {
+          "text": "Using the cache keyword",
+          "correct": false
+        },
+        {
+          "text": "Using the actions/cache action",
+          "correct": true
+        },
+        {
+          "text": "By storing them in the repository",
+          "correct": false
+        },
+        {
+          "text": "By using the store keyword",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `actions/cache` action is used to cache dependencies.",
+      "link": "https://docs.github.com/en/enterprise-cloud@latest/actions/using-workflows/caching-dependencies-to-speed-up-workflows#about-caching-workflow-dependencies"
+    },
+    {
+      "id": 88,
+      "title": "Question 088",
+      "question": "What does the `matrix` keyword do in a GitHub Actions workflow?",
+      "choices": [
+        {
+          "text": "Allows defining multiple job configurations to run in parallel",
+          "correct": true
+        },
+        {
+          "text": "Sets environment variables for the job",
+          "correct": false
+        },
+        {
+          "text": "Triggers workflows based on a schedule",
+          "correct": false
+        },
+        {
+          "text": "Defines secrets for the workflow",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `matrix` keyword allows you to define multiple job configurations to run in parallel.",
+      "link": "https://docs.github.com/en/enterprise-cloud@latest/actions/using-jobs/using-a-matrix-for-your-jobs"
+    },
+    {
+      "id": 89,
+      "title": "Question 089",
+      "question": "Which of the following can be used to limit the number of concurrent jobs running in a GitHub Actions workflow?",
+      "choices": [
+        {
+          "text": "concurrency",
+          "correct": true
+        },
+        {
+          "text": "limit",
+          "correct": false
+        },
+        {
+          "text": "max-jobs",
+          "correct": false
+        },
+        {
+          "text": "parallelism",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `concurrency` keyword can be used to limit the number of concurrent jobs.",
+      "link": "https://docs.github.com/en/enterprise-cloud@latest/actions/using-jobs/using-concurrency"
+    },
+    {
+      "id": 90,
+      "title": "Question 090",
+      "question": "What is the default timeout for a GitHub Actions job?",
+      "choices": [
+        {
+          "text": "30 minutes",
+          "correct": false
+        },
+        {
+          "text": "60 minutes",
+          "correct": false
+        },
+        {
+          "text": "120 minutes",
+          "correct": false
+        },
+        {
+          "text": "360 minutes",
+          "correct": true
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The default timeout for a job is 360 minutes (6 hours).",
+      "link": "https://docs.github.com/en/actions/learn-github-actions/usage-limits-billing-and-administration#usage-limits"
+    },
+    {
+      "id": 91,
+      "title": "Question 091",
+      "question": "How can you specify the operating system for a job in GitHub Actions?",
+      "choices": [
+        {
+          "text": "Using the os keyword",
+          "correct": false
+        },
+        {
+          "text": "Using the runs-on keyword",
+          "correct": true
+        },
+        {
+          "text": "Using the platform keyword",
+          "correct": false
+        },
+        {
+          "text": "Using the env keyword",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `runs-on` keyword is used to specify the operating system for a job.",
+      "link": "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idruns-on"
+    },
+    {
+      "id": 92,
+      "title": "Question 092",
+      "question": "In a GitHub Actions workflow, how do you specify a specific version of Node.js to use in a job?",
+      "choices": [
+        {
+          "text": "`uses: actions/setup-node@v4\n  with:\n    node-version: 20`",
+          "correct": true
+        },
+        {
+          "text": "`uses: actions/node-setup@v4\n  with:\n    node-version: 20`",
+          "correct": false
+        },
+        {
+          "text": "`uses: setup-node@v4\n  with:\n    version: 20`",
+          "correct": false
+        },
+        {
+          "text": "`uses: setup-node@v4\n  with:\n    node: 20`",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `actions/setup-node` action is used to specify the Node.js version.",
+      "link": "https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs#specifying-the-nodejs-version"
+    },
+    {
+      "id": 93,
+      "title": "Question 093",
+      "question": "How do you reference a secret stored in GitHub Secrets in a workflow?",
+      "choices": [
+        {
+          "text": "${{ secrets.SECRET_NAME }}",
+          "correct": true
+        },
+        {
+          "text": "${{ secret.SECRET_NAME }}",
+          "correct": false
+        },
+        {
+          "text": "${{ env.SECRET_NAME }}",
+          "correct": false
+        },
+        {
+          "text": "${{ config.SECRET_NAME }}",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "Secrets are referenced using the `secrets` context.",
+      "link": "https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#using-secrets-in-a-workflow"
+    },
+    {
+      "id": 94,
+      "title": "Question 094",
+      "question": "What is the default shell used by GitHub Actions on Windows runners?",
+      "choices": [
+        {
+          "text": "bash",
+          "correct": false
+        },
+        {
+          "text": "sh",
+          "correct": false
+        },
+        {
+          "text": "powershell",
+          "correct": true
+        },
+        {
+          "text": "cmd",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The default shell on Windows runners is PowerShell.",
+      "link": "https://github.blog/changelog/2019-10-17-github-actions-default-shell-on-windows-runners-is-changing-to-powershell/"
+    },
+    {
+      "id": 95,
+      "title": "Question 095",
+      "question": "Which of the following statements are true about adding a self-hosted runner in GitHub Actions? (Choose three.)",
+      "choices": [
+        {
+          "text": "You can add a self-hosted runner to a repository",
+          "correct": true
+        },
+        {
+          "text": "You can add a self-hosted runner to an organization",
+          "correct": true
+        },
+        {
+          "text": "You can add a self-hosted runner to an enterprise",
+          "correct": true
+        },
+        {
+          "text": "You can add a self-hosted runner to a workflow",
+          "correct": false
+        },
+        {
+          "text": "You can add a self-hosted runner to a step",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": true,
+      "explanation": "Self-hosted runners can be added at the repository, organization, or enterprise level.",
+      "link": "https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-a-repository"
+    },
+    {
+      "id": 96,
+      "title": "Question 096",
+      "question": "Select the default environment variable that contains the operating system of the runner executing the job",
+      "choices": [
+        {
+          "text": "`RUNNER_OS`",
+          "correct": true
+        },
+        {
+          "text": "`GITHUB_RUNNER_OS`",
+          "correct": false
+        },
+        {
+          "text": "`RUNNER_ARCH`",
+          "correct": false
+        },
+        {
+          "text": "`RUNNER_NAME`",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `RUNNER_OS` environment variable contains the operating system of the runner.",
+      "link": "https://docs.github.com/en/actions/learn-github-actions/variables#default-environment-variables"
+    },
+    {
+      "id": 97,
+      "title": "Question 097",
+      "question": "How does the `actions/cache` action in GitHub Actions handle a cache miss?",
+      "choices": [
+        {
+          "text": "by requiring manual intervention to create a new cache",
+          "correct": false
+        },
+        {
+          "text": "by searching for a cache in other repositories",
+          "correct": false
+        },
+        {
+          "text": "by automatically creating a new cache if the job is completed successfully",
+          "correct": true
+        },
+        {
+          "text": "by terminating the workflow if a cache miss occurs",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "If there is a cache miss, the `actions/cache` action will automatically create a new cache at the end of the job if the job completes successfully.",
+      "link": "https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows#managing-caches"
+    },
+    {
+      "id": 98,
+      "title": "Question 098",
+      "question": "How can you specify the schedule of a GitHub actions workflow to run on weekdays only?",
+      "choices": [
+        {
+          "text": "add a condition in the workflow YAML for weekdays",
+          "correct": false
+        },
+        {
+          "text": "it is not possible in GitHub actions",
+          "correct": false
+        },
+        {
+          "text": "use the on: schedule: weekdays event trigger",
+          "correct": false
+        },
+        {
+          "text": "use the on: schedule: cron event trigger",
+          "correct": true
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "You can use a cron expression with the `schedule` event trigger to run a workflow on specific days of the week.",
+      "link": "https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule"
+    },
+    {
+      "id": 99,
+      "title": "Question 099",
+      "question": "What is the recommended approach for storing secrets larger than 48 KB?",
+      "choices": [
+        {
+          "text": "avoid storing large secrets entirely to ensure security",
+          "correct": false
+        },
+        {
+          "text": "secrets larger than 48 KB cannot be stored",
+          "correct": false
+        },
+        {
+          "text": "encrypt and store secrets in the repository but keep the decryption passphrase as a secret",
+          "correct": true
+        },
+        {
+          "text": "store large secrets directly as repository secrets to avoid limitations",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "For secrets larger than 48 KB, it is recommended to encrypt and store them in the repository, and store the decryption passphrase as a secret.",
+      "link": "https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#limits-for-secrets"
+    },
+    {
+      "id": 100,
+      "title": "Question 100",
+      "question": "Select status check functions in GitHub Actions",
+      "choices": [
+        {
+          "text": "`success()`, `always()`, `cancelled()` and `failure()`",
+          "correct": true
+        },
+        {
+          "text": "`completed()`, `always()`, `cancelled()` and `failure()`",
+          "correct": false
+        },
+        {
+          "text": "`status()`, `always()`, `cancelled()` and `failure()`",
+          "correct": false
+        },
+        {
+          "text": "`state()`, `always()`, `cancelled()` and `failure()`",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The status check functions are `success()`, `always()`, `cancelled()`, and `failure()`.",
+      "link": "https://docs.github.com/en/actions/learn-github-actions/expressions#status-check-functions"
+    },
+    {
+      "id": 101,
+      "title": "Question 101",
+      "question": "How do you ensure that `Upload Failure test report` step is executed only if `Run Tests` step fails?",
+      "choices": [
+        {
+          "text": "`if: failure() && steps.run-tests.outcome == 'failure'`",
+          "correct": true
+        },
+        {
+          "text": "`if: always() && steps.run-tests.outcome == 'failure'`",
+          "correct": false
+        },
+        {
+          "text": "`if: steps.run-tests.outcome == 'failure'`",
+          "correct": false
+        },
+        {
+          "text": "no conditional needed",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "You can use the `failure()` status check function and check the `outcome` of the previous step to run a step only on failure.",
+      "link": "https://docs.github.com/en/actions/learn-github-actions/expressions#status-check-functions"
+    },
+    {
+      "id": 102,
+      "title": "Question 102",
+      "question": "Which context holds information about the event that triggered a workflow run?",
+      "choices": [
+        {
+          "text": "`github.event`",
+          "correct": true
+        },
+        {
+          "text": "`github.repository`",
+          "correct": false
+        },
+        {
+          "text": "`github.job`",
+          "correct": false
+        },
+        {
+          "text": "`jobs.<job_id>.result`",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `github.event` context contains information about the event that triggered the workflow.",
+      "link": "https://docs.github.com/en/actions/using-workflows/triggering-a-workflow#using-event-information"
+    },
+    {
+      "id": 103,
+      "title": "Question 103",
+      "question": "In GitHub Actions, if you define both branches and paths filter, what is the effect on the workflow execution?",
+      "choices": [
+        {
+          "text": "the workflow will only run when both `branches` and `paths` are satisfied",
+          "correct": true
+        },
+        {
+          "text": "the workflow will run when either `branches` or `paths` are satisfied, but will only apply the matching filter",
+          "correct": false
+        },
+        {
+          "text": "the workflow will run when either `branches` or `paths` are satisfied",
+          "correct": false
+        },
+        {
+          "text": "the workflow will not run when both `branches` and `paths` are satisfied",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "If you define both `branches` and `paths` filters, the workflow will only run when both filters are satisfied.",
+      "link": "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore"
+    },
+    {
+      "id": 104,
+      "title": "Question 104",
+      "question": "What is the recommended practice for treating environment variables in GitHub Actions, regardless of the operating system and shell used?",
+      "choices": [
+        {
+          "text": "treat environment variables as case-sensitive",
+          "correct": true
+        },
+        {
+          "text": "use only uppercase letters for environment variable names",
+          "correct": false
+        },
+        {
+          "text": "ignore case sensitivity as GitHub Actions handles it automatically",
+          "correct": false
+        },
+        {
+          "text": "depend on the behavior of the operating system in use",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "It is recommended to treat environment variables as case-sensitive.",
+      "link": "https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/workflow-commands-for-github-actions#setting-an-environment-variable"
+    },
+    {
+      "id": 105,
+      "title": "Question 105",
+      "question": "Which of the following statements accurately describes the behavior of workflow jobs referencing an environment's protection rules?",
+      "choices": [
+        {
+          "text": "workflow jobs won't start until all the environment's protection rules pass",
+          "correct": true
+        },
+        {
+          "text": "workflow jobs will never start if the environment has protection rules",
+          "correct": false
+        },
+        {
+          "text": "workflow jobs will start immediately, regardless of the environment's protection rules",
+          "correct": false
+        },
+        {
+          "text": "workflow jobs will only start if some of the environment's protection rules pass",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "A job will not start until all of the environment's protection rules have passed.",
+      "link": "https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment"
+    },
+    {
+      "id": 106,
+      "title": "Question 106",
+      "question": "What is the purpose of the `restore-keys` parameter in `actions/cache` in GitHub Actions?",
+      "choices": [
+        {
+          "text": "provide alternative keys to use in case of a cache miss",
+          "correct": true
+        },
+        {
+          "text": "indicate whether a cache hit occurred",
+          "correct": false
+        },
+        {
+          "text": "specify the location of the cached files",
+          "correct": false
+        },
+        {
+          "text": "enable cross-OS cache functionality",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `restore-keys` parameter provides a list of alternative keys to use if there is a cache miss.",
+      "link": "https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows#managing-caches"
+    },
+    {
+      "id": 107,
+      "title": "Question 107",
+      "question": "Which variable would you set to `true` in order to enable step debug logging?",
+      "choices": [
+        {
+          "text": "`ACTIONS_STEP_DEBUG`",
+          "correct": true
+        },
+        {
+          "text": "`ACTIONS_JOB_DEBUG`",
+          "correct": false
+        },
+        {
+          "text": "`ACTIONS_RUNNER_DEBUG`",
+          "correct": false
+        },
+        {
+          "text": "`ACTIONS_WORKFLOW_DEBUG`",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "You can enable step debug logging by setting the `ACTIONS_STEP_DEBUG` secret to `true`.",
+      "link": "https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging"
+    },
+    {
+      "id": 108,
+      "title": "Question 108",
+      "question": "Which configuration is appropriate for triggering a workflow to run on webhook events related to check_run actions?",
+      "choices": [
+        {
+          "text": "`on:\n    check_run:\n        types: [rerequested, completed]`",
+          "correct": true
+        },
+        {
+          "text": "`on:\n    check_run:\n        types: [started]`",
+          "correct": false
+        },
+        {
+          "text": "`on:\n    check_run:\n        type: [closed]`",
+          "correct": false
+        },
+        {
+          "text": "`on:\n    check_run:\n        filter: [requested]`",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "You can use the `types` filter with the `check_run` event to specify which check run events should trigger the workflow.",
+      "link": "https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#check_run"
+    },
+    {
+      "id": 109,
+      "title": "Question 109",
+      "question": "What is the purpose of the `timeout-minutes` keyword in a step?",
+      "choices": [
+        {
+          "text": "it limits the execution time for individual step",
+          "correct": true
+        },
+        {
+          "text": "it defines the time interval for individual commands within a step",
+          "correct": false
+        },
+        {
+          "text": "it sets the timeout for waiting on external events before proceeding to the next step",
+          "correct": false
+        },
+        {
+          "text": "it specifies the maximum duration a job is allowed to run",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `timeout-minutes` keyword in a step limits the execution time for that individual step.",
+      "link": "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepstimeout-minutes"
+    },
+    {
+      "id": 110,
+      "title": "Question 110",
+      "question": "Dave is creating a templated workflow for his organization. Where must Dave store the workflow files and associated metadata files for the templated workflow?",
+      "choices": [
+        {
+          "text": "inside a directory named `workflow-templates` within a repository named `.github`",
+          "correct": true
+        },
+        {
+          "text": "inside a directory named `workflow-templates` within the current repository",
+          "correct": false
+        },
+        {
+          "text": "inside a directory named `.github/org-templates`",
+          "correct": false
+        },
+        {
+          "text": "inside a directory named `.github/workflow-templates`",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "Starter workflows must be stored in a public repository named `.github` in a directory named `workflow-templates`.",
+      "link": "https://docs.github.com/en/actions/using-workflows/creating-starter-workflows-for-your-organization"
+    },
+    {
+      "id": 111,
+      "title": "Question 111",
+      "question": "Dave wants to be notified when a comment is created on an issue within a GitHub repository. Which event trigger should be used within the workflow configuration?",
+      "choices": [
+        {
+          "text": "`issue_comment`",
+          "correct": true
+        },
+        {
+          "text": "`issues.comment`",
+          "correct": false
+        },
+        {
+          "text": "`issues`",
+          "correct": false
+        },
+        {
+          "text": "`comment`",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `issue_comment` event is triggered when a comment is created on an issue.",
+      "link": "https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#issue_comment"
+    },
+    {
+      "id": 112,
+      "title": "Question 112",
+      "question": "What level of access is required on a GitHub repository in order to delete log files from workflow runs?",
+      "choices": [
+        {
+          "text": "write",
+          "correct": true
+        },
+        {
+          "text": "read",
+          "correct": false
+        },
+        {
+          "text": "admin",
+          "correct": false
+        },
+        {
+          "text": "owner",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "You need write access to a repository to delete workflow run logs.",
+      "link": "https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs"
+    },
+    {
+      "id": 113,
+      "title": "Question 113",
+      "question": "What is true about the following workflow configuration if triggered against the `octo/my-dev-repo` repository?",
+      "choices": [
+        {
+          "text": "the `production-deploy` job will be marked as skipped",
+          "correct": true
+        },
+        {
+          "text": "the `production-deploy` job will error",
+          "correct": false
+        },
+        {
+          "text": "the `production-deploy` job will execute three steps",
+          "correct": false
+        },
+        {
+          "text": "the `production-deploy` job will run if the `node-version` is `14`",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `if` conditional on the job will evaluate to false, so the job will be skipped.",
+      "link": "https://docs.github.com/en/actions/using-jobs/using-conditions-to-control-job-execution"
+    },
+    {
+      "id": 114,
+      "title": "Question 114",
+      "question": "How can you access the current values of variables in a matrix within a job in the example below:",
+      "choices": [
+        {
+          "text": "reference variables through the `matrix` context with syntax like`matrix.version` and `matrix.os`",
+          "correct": true
+        },
+        {
+          "text": "by using the `matrix.property` syntax",
+          "correct": false
+        },
+        {
+          "text": "by using the `context` keyword within the job configuration",
+          "correct": false
+        },
+        {
+          "text": "by accessing the variables directly with the syntax `version` and `os`",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "Matrix variables are accessed using the `matrix` context.",
+      "link": "https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs#using-a-matrix-strategy"
+    },
+    {
+      "id": 115,
+      "title": "Question 115",
+      "question": "What level of permission is required to re-run the workflows",
+      "choices": [
+        {
+          "text": "write",
+          "correct": true
+        },
+        {
+          "text": "read",
+          "correct": false
+        },
+        {
+          "text": "admin",
+          "correct": false
+        },
+        {
+          "text": "owner",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "You need write access to a repository to re-run workflows.",
+      "link": "https://docs.github.com/en/actions/managing-workflow-runs/re-running-workflows-and-jobs"
+    },
+    {
+      "id": 116,
+      "title": "Question 116",
+      "question": "When can you delete workflow runs? (select two)",
+      "choices": [
+        {
+          "text": "When workflow run has been completed",
+          "correct": true
+        },
+        {
+          "text": "When workflow run is two weeks old",
+          "correct": true
+        },
+        {
+          "text": "When workflow run is 10 days old",
+          "correct": false
+        },
+        {
+          "text": "When workflow run is in progress",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": true,
+      "explanation": "You can delete workflow runs that are completed or are older than two weeks.",
+      "link": "https://docs.github.com/en/actions/managing-workflow-runs/deleting-a-workflow-run"
+    },
+    {
+      "id": 117,
+      "title": "Question 117",
+      "question": "Who can bypass configured deployment protection rules to force deployment (by default)",
+      "choices": [
+        {
+          "text": "Repository administrators",
+          "correct": true
+        },
+        {
+          "text": "Anyone with repository write permission",
+          "correct": false
+        },
+        {
+          "text": "Anyone with repository read permission",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "By default, repository administrators can bypass deployment protection rules.",
+      "link": "https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#allow-administrators-to-bypass-configured-protection-rules"
+    },
+    {
+      "id": 118,
+      "title": "Question 118",
+      "question": "How can you skip the following workflow run when you commit or create a PR?",
+      "choices": [
+        {
+          "text": "By including any one of the following keywords in the commit message or in the title of the pull-request `[skip ci]`, `[ci skip]`, `[no ci]`, `[skip actions]`, `[actions skip]`",
+          "correct": true
+        },
+        {
+          "text": "Provide `SKIP_WORKFLOW` in the commit message",
+          "correct": false
+        },
+        {
+          "text": "The above workflow will run in every event of push or pull request in every case",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "You can skip a workflow run by including specific keywords in the commit message or pull request title.",
+      "link": "https://docs.github.com/en/actions/managing-workflow-runs/skipping-workflow-runs"
+    },
+    {
+      "id": 119,
+      "title": "Question 119",
+      "question": "How can you determine if an action is a container action by looking at its action.yml file?",
+      "choices": [
+        {
+          "text": "`runs.using` has `docker` as value",
+          "correct": true
+        },
+        {
+          "text": "`runs.using` has `container` as value",
+          "correct": false
+        },
+        {
+          "text": "`runs.using` has `Dockerfile` as value",
+          "correct": false
+        },
+        {
+          "text": "`runs.main` has `container` as value",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "If the `runs.using` key in the action's metadata file is set to `docker`, then it is a container action.",
+      "link": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-docker-container-actions"
+    },
+    {
+      "id": 120,
+      "title": "Question 120",
+      "question": "What is the correct syntax for specifying a cleanup script in a container action?",
+      "choices": [
+        {
+          "text": "`runs:\n      using: 'docker'\n      image: 'Dockerfile'\n      entrypoint: 'entrypoint.sh'\n      post-entrypoint: 'cleanup.sh'`",
+          "correct": true
+        },
+        {
+          "text": "`runs:\n      using: 'docker'\n      image: 'Dockerfile'\n      entrypoint: 'entrypoint.sh'\n      post: 'cleanup.sh'`",
+          "correct": false
+        },
+        {
+          "text": "`runs:\n      using: 'docker'\n      image: 'Dockerfile'\n      entrypoint: 'entrypoint.sh'\n      after: 'cleanup.sh'`",
+          "correct": false
+        },
+        {
+          "text": "`runs:\n      using: 'docker'\n      image: 'Dockerfile'\n      entrypoint: 'entrypoint.sh'\n      after-entrypoint: 'cleanup.sh'`",
+          "correct": false
+        },
+        {
+          "text": "`runs:\n      using: 'docker'\n      image: 'Dockerfile'\n      entrypoint: 'entrypoint.sh'\n      cleanup: 'cleanup.sh'`",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `post-entrypoint` key is used to specify a cleanup script for a container action.",
+      "link": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runspost-entrypoint"
+    },
+    {
+      "id": 121,
+      "title": "Question 121",
+      "question": "What’s true about default variables? (choose three)",
+      "choices": [
+        {
+          "text": "Default environment variables are set by GitHub and not defined in a workflow",
+          "correct": true
+        },
+        {
+          "text": "Most of the default environment variables have a corresponding context property",
+          "correct": true
+        },
+        {
+          "text": "Currently, the value of the default CI environment variable can be overwritten, but it's not guaranteed this will always be possible",
+          "correct": true
+        },
+        {
+          "text": "You can add a new default environment variable adding the prefix “GITHUB_” to it",
+          "correct": false
+        },
+        {
+          "text": "Default environment variables always have the prefix “GITHUB_”",
+          "correct": false
+        },
+        {
+          "text": "Default environment variables can be accessed using the env context",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": true,
+      "explanation": "Default environment variables are set by GitHub, often have a corresponding context property, and some can be overwritten.",
+      "link": "https://docs.github.com/en/actions/learn-github-actions/variables#default-environment-variables"
+    },
+    {
+      "id": 122,
+      "title": "Question 122",
+      "question": "What are the scopes defined for custom variables in a workflow? (choose three)",
+      "choices": [
+        {
+          "text": "The entire workflow, by using `env` at the top level of the workflow file",
+          "correct": true
+        },
+        {
+          "text": "The contents of a job within a workflow, by using `jobs.<job_id>.env`",
+          "correct": true
+        },
+        {
+          "text": "A specific step within a job, by using `jobs.<job_id>.steps[*].env`",
+          "correct": true
+        },
+        {
+          "text": "All the jobs within a workflow, by using `jobs.env`",
+          "correct": false
+        },
+        {
+          "text": "The entire workflow, by using `custom.env` at the top level of the workflow file",
+          "correct": false
+        },
+        {
+          "text": "A specific environment in the repository, by using `environment.<environment_id>.env` at the top level of the workflow file",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": true,
+      "explanation": "Environment variables can be defined at the workflow, job, and step levels.",
+      "link": "https://docs.github.com/en/actions/learn-github-actions/variables#defining-environment-variables-for-a-single-workflow"
+    },
+    {
+      "id": 123,
+      "title": "Question 123",
+      "question": "What must be added to `actions/checkout` if `my-org/my-private-repo` is a private repository differing from the one containing the current workflow?",
+      "choices": [
+        {
+          "text": "Create a GitHub secret `MY_ACCESS_TOKEN`",
+          "correct": true
+        },
+        {
+          "text": "Create an input `MY_ACCESS_TOKEN`",
+          "correct": false
+        },
+        {
+          "text": "The environmental variable `GITHUB_TOKEN`",
+          "correct": false
+        },
+        {
+          "text": "Leave as is since access tokens will be passed automatically",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "To check out a private repository, you need to provide a personal access token (PAT) with the appropriate permissions.",
+      "link": "https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#example-using-an-action-inside-a-different-private-repository-than-the-workflow"
+    },
+    {
+      "id": 124,
+      "title": "Question 124",
+      "question": "Given the following configuration, how many jobs will GitHub Actions run when this matrix is evaluated?",
+      "choices": [
+        {
+          "text": "4 jobs",
+          "correct": false
+        },
+        {
+          "text": "5 jobs",
+          "correct": true
+        },
+        {
+          "text": "6 jobs",
+          "correct": false
+        },
+        {
+          "text": "7 jobs",
+          "correct": false
+        },
+        {
+          "text": "No jobs will run because the syntax is invalid.",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The initial matrix has 4 jobs (2 OS * 2 Node versions). The `include` key adds one new job (macos-latest/18) and modifies an existing one (ubuntu-latest/14), for a total of 5 jobs.",
+      "link": "https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/running-variations-of-jobs-in-a-workflow#expanding-or-adding-matrix-configurations"
+    },
+    {
+      "id": 125,
+      "title": "Question 125",
+      "question": "At what levels can environment variables be defined ? (Choose three)",
+      "choices": [
+        {
+          "text": "Workflow level",
+          "correct": true
+        },
+        {
+          "text": "Job level",
+          "correct": true
+        },
+        {
+          "text": "Step level",
+          "correct": true
+        },
+        {
+          "text": "Action level",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": true,
+      "explanation": "Environment variables can be defined at the workflow, job, and step levels.",
+      "link": "https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables"
+    },
+    {
+      "id": 126,
+      "title": "Question 126",
+      "question": "How should a dependent job reference the `output1` value produced by a job named `job1` earlier in the same workflow?",
+      "choices": [
+        {
+          "text": "`${{needs.job1.outputs.output1}}`",
+          "correct": true
+        },
+        {
+          "text": "`${{job1.outputs.output1}}`",
+          "correct": false
+        },
+        {
+          "text": "`${{needs.job1.output1}}`",
+          "correct": false
+        },
+        {
+          "text": "`${{depends.job1.output1}}`",
+          "correct": false
+        }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "Outputs from a dependent job are accessed using the `needs` context.",
+      "link": "https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/passing-information-between-jobs"
     }
   ]
 }
