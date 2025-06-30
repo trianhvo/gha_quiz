@@ -1,0 +1,431 @@
+{
+  "questions": [
+    {
+      "id": 61,
+      "title": "Question 061",
+      "question": "Which of the following are default environment variables in GitHub Actions? (Select three.)",
+      "choices": [
+        { "text": "`GITHUB_REPOSITORY`", "correct": true },
+        { "text": "`GITHUB_WORKFLOW`", "correct": true },
+        { "text": "`GITHUB_ACTOR`", "correct": true },
+        { "text": "`GITHUB_USER`", "correct": false },
+        { "text": "`GITHUB_ORGANIZATION`", "correct": false },
+        { "text": "`GITHUB_TOKEN`", "correct": false }
+      ],
+      "isMultipleChoice": true,
+      "explanation": "`GITHUB_REPOSITORY`, `GITHUB_WORKFLOW`, and `GITHUB_ACTOR` are all default environment variables.",
+      "link": "https://docs.github.com/en/actions/reference/environment-variables#default-environment-variables"
+    },
+    {
+      "id": 62,
+      "title": "Question 062",
+      "question": "Your organization defines a secret `SomeSecret`, however when you reference that secret in a workflow using `${{ secrets.SomeSecret }}` it provides a different value than expected. What may be the reason for that?",
+      "choices": [
+        { "text": "The secret `SomeSecret` is also declared in repository scope", "correct": true },
+        { "text": "The secret `SomeSecret` is also declared in enterprise scope", "correct": false },
+        { "text": "`${{ secrets.SomeSecret }}` expression is only used for repository scoped secrets", "correct": false },
+        { "text": "You need to use the GitHub API to access organization scoped secrets", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "If a secret with the same name exists at multiple levels, the secret at the lowest level takes precedence. In this case, the repository-level secret is overriding the organization-level secret.",
+      "link": "https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#naming-your-secrets"
+    },
+    {
+      "id": 63,
+      "title": "Question 063",
+      "question": "Which is a correct way to print a debug message?",
+      "choices": [
+        { "text": "`echo \"::debug::Watch out here!\"`", "correct": true },
+        { "text": "`echo \":debug:Watch out here!\"`", "correct": false },
+        { "text": "`echo \"::debug::message=Watch out here!\"`", "correct": false },
+        { "text": "`echo \"Watch out here!\" >> $GITHUB_DEBUG`", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "To print a debug message, you use the format `::debug::message`.",
+      "link": "https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#example-setting-a-debug-message"
+    },
+    {
+      "id": 64,
+      "title": "Question 064",
+      "question": "How can organizations which are using GitHub Enterprise Server enable automatic syncing of third party GitHub Actions hosted on GitHub.com to their GitHub Enterprise Server instance?",
+      "choices": [
+        { "text": "Using GitHub Connect", "correct": true },
+        { "text": "GitHub Enterprise Server has access to all GitHub.com Actions by default", "correct": false },
+        { "text": "Using actions-sync tool", "correct": false },
+        { "text": "GitHub Enterprise Server cannot use GitHub.com Actions because of it's on-premise nature and no internet access", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "GitHub Connect can be used to enable automatic access to GitHub.com Actions from GitHub Enterprise Server.",
+      "link": "https://docs.github.com/en/enterprise-server@3.6/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect"
+    },
+    {
+      "id": 65,
+      "title": "Question 065",
+      "question": "Where can you find network connectivity logs for a GitHub self-hosted-runner?",
+      "choices": [
+        { "text": "In the `_diag` folder directly on the runner machine", "correct": true },
+        { "text": "On GitHub.com on that specific Runner's page", "correct": false },
+        { "text": "In the job run logs of a job that ran on that Runner", "correct": false },
+        { "text": "In the job run logs of a job that ran on that Runner with debug logging enabled", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "Network connectivity logs for a self-hosted runner can be found in the `_diag` folder on the runner machine.",
+      "link": "https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-self-hosted-runner-network-connectivity"
+    },
+    {
+      "id": 66,
+      "title": "Question 066",
+      "question": "How can you validate that your GitHub self-hosted-runner can access all required GitHub services?",
+      "choices": [
+        { "text": "Using a GitHub provided script on the runner machine", "correct": true },
+        { "text": "By trying to access the runner machine by `ssh` to validate the network connectivity", "correct": false },
+        { "text": "By using the predefined GitHub Actions workflow `network-connectivity.yml`", "correct": false },
+        { "text": "GitHub will validate the network connectivity automatically when the runner application is installed on the runner machine", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "GitHub provides a script that can be run on the runner machine to validate network connectivity.",
+      "link": "https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-self-hosted-runner-network-connectivity"
+    },
+    {
+      "id": 67,
+      "title": "Question 067",
+      "question": "Which is the correct way of triggering a job only if configuration variable `MY_VAR` has the value of `MY_VALUE`?",
+      "choices": [
+        { "text": "By creating the following conditional on job level", "correct": true },
+        { "text": "By creating the following conditional on job level", "correct": false },
+        { "text": "It's not possible because configuration variables cannot be used in `if` conditionals", "correct": false },
+        { "text": "It's not possible because configuration variables cannot be used in job level `if` conditionals", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "You can use the `vars` context in an `if` conditional to check the value of a configuration variable.",
+      "link": "https://docs.github.com/en/actions/learn-github-actions/contexts#example-usage-of-the-vars-context"
+    },
+    {
+      "id": 68,
+      "title": "Question 068",
+      "question": "To run a `step` only if the secret `MY_SECRET` has been set, you can:",
+      "choices": [
+        { "text": "Set the secret `MY_SECRET` as a job level environment variable, then reference that environment variable to conditionally run that step", "correct": true },
+        { "text": "By creating the following conditional on job level", "correct": false },
+        { "text": "By creating the following conditional on step level", "correct": false },
+        { "text": "By creating the following conditional on step level", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "Secrets cannot be directly referenced in `if` conditionals. The recommended workaround is to set the secret as an environment variable and then check if the environment variable is set.",
+      "link": "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#example-using-secrets"
+    },
+    {
+      "id": 69,
+      "title": "Question 069",
+      "question": "How can you use the GitHub API to download workflow run logs?",
+      "choices": [
+        { "text": "`GET /repos/{owner}/{repo}/actions/runs/{run_id}/logs`", "correct": true },
+        { "text": "`POST /repos/{owner}/{repo}/actions/runs/{run_id}/logs`", "correct": false },
+        { "text": "`HEAD /repos/{owner}/{repo}/actions/runs/{run_id}/logs`", "correct": false },
+        { "text": "`PUT /repos/{owner}/{repo}/actions/runs/{run_id}/logs`", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "You can use a GET request to the `/repos/{owner}/{repo}/actions/runs/{run_id}/logs` endpoint to download workflow run logs.",
+      "link": "https://docs.github.com/en/rest/actions/workflow-runs?apiVersion=2022-11-28#download-workflow-run-logs"
+    },
+    {
+      "id": 70,
+      "title": "Question 070",
+      "question": "How can you use the GitHub API to create or update a repository secret?",
+      "choices": [
+        { "text": "`PUT /repos/{owner}/{repo}/actions/secrets/{secret_name}`", "correct": true },
+        { "text": "`POST /repos/{owner}/{repo}/actions/secrets/{secret_name}`", "correct": false },
+        { "text": "`HEAD /repos/{owner}/{repo}/actions/secrets/{secret_name}`", "correct": false },
+        { "text": "`GET /repos/{owner}/{repo}/actions/secrets/{secret_name}`", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "You can use a PUT request to the `/repos/{owner}/{repo}/actions/secrets/{secret_name}` endpoint to create or update a repository secret.",
+      "link": "https://docs.github.com/en/rest/actions/secrets?create-or-update-a-repository-secret=&apiVersion=2022-11-28#create-or-update-a-repository-secret"
+    },
+    {
+      "id": 71,
+      "title": "Question 071",
+      "question": "How can you override an organization-level GitHub Secret `API_KEY` with a different value when working within a repository? (Select two.)",
+      "choices": [
+        { "text": "By creating a repository secret with the same name `API_KEY`", "correct": true },
+        { "text": "By creating a environment secret with the same name `API_KEY`", "correct": true },
+        { "text": "By creating a enterprise secret with the same name `API_KEY`", "correct": false },
+        { "text": "By creating a enterprise secret with the name `OVERRIDE_API_KEY`", "correct": false },
+        { "text": "By creating a repository secret with the name `OVERRIDE_API_KEY`", "correct": false },
+        { "text": "By creating a environment secret with the name `OVERRIDE_API_KEY`", "correct": false },
+        { "text": "By creating a repository secret with the name `REPOSITORY_API_KEY`", "correct": false },
+        { "text": "By creating a environment secret with the name `ENVIRONMENT_API_KEY`", "correct": false }
+      ],
+      "isMultipleChoice": true,
+      "explanation": "Secrets at a lower level (repository or environment) will override secrets with the same name at a higher level (organization).",
+      "link": "https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#naming-your-secrets"
+    },
+    {
+      "id": 72,
+      "title": "Question 072",
+      "question": "What components can be reused within a GitHub Organization? (Select four.)",
+      "choices": [
+        { "text": "Secrets", "correct": true },
+        { "text": "Configuration Variables", "correct": true },
+        { "text": "Self Hosted Runners", "correct": true },
+        { "text": "Workflow Templates", "correct": true },
+        { "text": "Artifacts", "correct": false },
+        { "text": "Cache", "correct": false },
+        { "text": "Environment Variables", "correct": false }
+      ],
+      "isMultipleChoice": true,
+      "explanation": "Secrets, configuration variables, self-hosted runners, and workflow templates can all be shared and reused within a GitHub organization.",
+      "link": "https://docs.github.com/en/actions"
+    },
+    {
+      "id": 73,
+      "title": "Question 073",
+      "question": "How many jobs will be executed in the following workflow?\n```yaml\njobs:\n  matrix-job:\n    runs-on: ubuntu-latest\n    strategy:\n      matrix:\n        pet: [cat, dog]\n        color: [pink, brown]\n        include:\n          - color: white\n            pet: dog\n```",
+      "choices": [
+        { "text": "5", "correct": true },
+        { "text": "4", "correct": false },
+        { "text": "6", "correct": false },
+        { "text": "7", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The matrix will generate 4 jobs (2 pets * 2 colors). The `include` key adds one additional job, for a total of 5.",
+      "link": "https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs#using-a-matrix-strategy"
+    },
+    {
+      "id": 74,
+      "title": "Question 074",
+      "question": "Which of the following default environment variables contains the full name (e.g `octocat/hello-world`) of the repository where the workflow is running?",
+      "choices": [
+        { "text": "`GITHUB_REPOSITORY`", "correct": true },
+        { "text": "`GITHUB_REPOSITORY_ID`", "correct": false },
+        { "text": "`GITHUB_REPOSITORY_OWNER`", "correct": false },
+        { "text": "`GITHUB_REPOSITORY_OWNER_ID`", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `GITHUB_REPOSITORY` environment variable contains the full name of the repository.",
+      "link": "https://docs.github.com/en/actions/reference/environment-variables#default-environment-variables"
+    },
+    {
+      "id": 75,
+      "title": "Question 075",
+      "question": "In a workflow that has multiple jobs, all running on GitHub-hosted runners, is it true that all jobs are guaranteed to run on the same runner machine?",
+      "choices": [
+        { "text": "No", "correct": true },
+        { "text": "Yes", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "Each job runs in a fresh instance of a runner image, so there is no guarantee that they will run on the same machine.",
+      "link": "https://docs.github.com/en/actions/using-jobs/choosing-the-runner-for-a-job#choosing-github-hosted-runners"
+    },
+    {
+      "id": 76,
+      "title": "Question 076",
+      "question": "What's the maximum amount of reusable workflows that can be called from a single workflow file?",
+      "choices": [
+        { "text": "20", "correct": true },
+        { "text": "5", "correct": false },
+        { "text": "1", "correct": false },
+        { "text": "10", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "A single workflow can call up to 20 reusable workflows.",
+      "link": "https://docs.github.com/en/actions/using-workflows/reusing-workflows#limitations"
+    },
+    {
+      "id": 77,
+      "title": "Question 077",
+      "question": "What is a self-hosted runner?",
+      "choices": [
+        { "text": "A self-hosted runner is a system that you deploy and manage to execute jobs from GitHub Actions on GitHub.com", "correct": true },
+        { "text": "A self-hosted runner is a system to upload code to a private server", "correct": false },
+        { "text": "A self-hosted runner is a system to be able to create workloads automatically", "correct": false },
+        { "text": "A self-hosted runner is a system to manage pull requests from users of the organization", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "A self-hosted runner is a system that you deploy and manage to execute jobs from GitHub Actions.",
+      "link": "https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners"
+    },
+    {
+      "id": 78,
+      "title": "Question 078",
+      "question": "Which of the following is a correct statement about GitHub Workflows and Actions?",
+      "choices": [
+        { "text": "Each action is composed of one or more workflows which is composed of one or more jobs, and each job is composed of one or more step", "correct": false },
+        { "text": "Each workflow is composed of one or more action which is composed of one or more jobs, and each job is composed of one or more step", "correct": false },
+        { "text": "Each workflow is composed of one or more job which is composed of one or more step, and each step is an action or a script", "correct": true },
+        { "text": "Each action is composed of one or more job which is composed of one or more step, and each step is a workflow", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "A workflow is composed of one or more jobs, each job is composed of one or more steps, and each step can be an action or a script.",
+      "link": "https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions"
+    },
+    {
+      "id": 79,
+      "title": "Question 079",
+      "question": "On which commit and branch do scheduled workflows run in GitHub Actions?",
+      "choices": [
+        { "text": "Scheduled workflows run on the specific commit on last modified branch.", "correct": false },
+        { "text": "Scheduled workflows run on the specific commit on the main branch.", "correct": false },
+        { "text": "Scheduled workflows run on the latest commit on the repository default branch.", "correct": true },
+        { "text": "Scheduled workflows run on the latest commit on the main branch.", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "Scheduled workflows run on the latest commit on the repository's default branch.",
+      "link": "https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule"
+    },
+    {
+      "id": 80,
+      "title": "Question 080",
+      "question": "What is the correct syntax for setting the directory for all `run` commands in a workflow?",
+      "choices": [
+        { "text": "set `working-directory` under `defaults.run`", "correct": true },
+        { "text": "set `directory` under `defaults.run`", "correct": false },
+        { "text": "set `working-directory` under `job`", "correct": false },
+        { "text": "set `directory` under `job`", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "You can set the default working directory for all `run` commands in a workflow by using the `defaults.run.working-directory` key.",
+      "link": "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#defaultsrunworking-directory"
+    },
+    {
+      "id": 81,
+      "title": "Question 081",
+      "question": "How can you reuse a defined workflow in multiple repositories? (Choose two.)",
+      "choices": [
+        { "text": "By copying the workflow file to each repository", "correct": false },
+        { "text": "By using workflow templates", "correct": true },
+        { "text": "By creating a reusable action", "correct": false },
+        { "text": "By defining the workflow in a central repository", "correct": true }
+      ],
+      "isMultipleChoice": true,
+      "explanation": "You can reuse workflows by creating workflow templates or by defining the workflow in a central repository and calling it from other repositories.",
+      "link": "https://docs.github.com/en/actions/using-workflows/creating-starter-workflows-for-your-organization"
+    },
+    {
+      "id": 82,
+      "title": "Question 082",
+      "question": "How can you ensure a job runs only on a specific branch?",
+      "choices": [
+        { "text": "By using the branches filter", "correct": true },
+        { "text": "By using the runs-on filter", "correct": false },
+        { "text": "By using the jobs filter", "correct": false },
+        { "text": "By using the branch keyword", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `branches` filter is used to specify which branches a workflow should run on.",
+      "link": "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#using-filters"
+    },
+    {
+      "id": 83,
+      "title": "Question 083",
+      "question": "What does the `needs` keyword do in a GitHub Actions workflow?",
+      "choices": [
+        { "text": "Specifies the dependencies of a job", "correct": true },
+        { "text": "Defines environment variables", "correct": false },
+        { "text": "Sets up the environment", "correct": false },
+        { "text": "Triggers a job based on an event", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `needs` keyword is used to specify that a job depends on another job.",
+      "link": "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds"
+    },
+    {
+      "id": 84,
+      "title": "Question 084",
+      "question": "Which keyword allows you to define environment variables in a GitHub Actions workflow?",
+      "choices": [
+        { "text": "env", "correct": true },
+        { "text": "vars", "correct": false },
+        { "text": "secrets", "correct": false },
+        { "text": "config", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `env` keyword is used to define environment variables.",
+      "link": "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idenv"
+    },
+    {
+      "id": 85,
+      "title": "Question 085",
+      "question": "What is the purpose of the `with` keyword in a GitHub Actions workflow?",
+      "choices": [
+        { "text": "To define environment variables", "correct": false },
+        { "text": "To specify input parameters for an action", "correct": true },
+        { "text": "To set up dependencies", "correct": false },
+        { "text": "To trigger another workflow", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `with` keyword is used to specify input parameters for an action.",
+      "link": "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepswith"
+    },
+    {
+      "id": 86,
+      "title": "Question 086",
+      "question": "Which of the following GitHub Actions syntax is used to run multiple commands in a single step?",
+      "choices": [
+        { "text": "Using && to chain commands", "correct": false },
+        { "text": "Defining commands in an array", "correct": false },
+        { "text": "Using a multiline string with |", "correct": true },
+        { "text": "Separating commands with a semicolon ;", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "You can use a multiline string with the `|` character to run multiple commands in a single step.",
+      "link": "https://docs.github.com/en/enterprise-cloud@latest/actions/using-workflows/workflow-commands-for-github-actions#example-of-a-multiline-string"
+    },
+    {
+      "id": 87,
+      "title": "Question 087",
+      "question": "How can you cache dependencies to speed up workflow execution?",
+      "choices": [
+        { "text": "Using the cache keyword", "correct": false },
+        { "text": "Using the actions/cache action", "correct": true },
+        { "text": "By storing them in the repository", "correct": false },
+        { "text": "By using the store keyword", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `actions/cache` action is used to cache dependencies.",
+      "link": "https://docs.github.com/en/enterprise-cloud@latest/actions/using-workflows/caching-dependencies-to-speed-up-workflows#about-caching-workflow-dependencies"
+    },
+    {
+      "id": 88,
+      "title": "Question 088",
+      "question": "What does the `matrix` keyword do in a GitHub Actions workflow?",
+      "choices": [
+        { "text": "Allows defining multiple job configurations to run in parallel", "correct": true },
+        { "text": "Sets environment variables for the job", "correct": false },
+        { "text": "Triggers workflows based on a schedule", "correct": false },
+        { "text": "Defines secrets for the workflow", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `matrix` keyword allows you to define multiple job configurations to run in parallel.",
+      "link": "https://docs.github.com/en/enterprise-cloud@latest/actions/using-jobs/using-a-matrix-for-your-jobs"
+    },
+    {
+      "id": 89,
+      "title": "Question 089",
+      "question": "Which of the following can be used to limit the number of concurrent jobs running in a GitHub Actions workflow?",
+      "choices": [
+        { "text": "concurrency", "correct": true },
+        { "text": "limit", "correct": false },
+        { "text": "max-jobs", "correct": false },
+        { "text": "parallelism", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `concurrency` keyword can be used to limit the number of concurrent jobs.",
+      "link": "https://docs.github.com/en/enterprise-cloud@latest/actions/using-jobs/using-concurrency"
+    },
+    {
+      "id": 90,
+      "title": "Question 090",
+      "question": "What is the default timeout for a GitHub Actions job?",
+      "choices": [
+        { "text": "30 minutes", "correct": false },
+        { "text": "60 minutes", "correct": false },
+        { "text": "120 minutes", "correct": false },
+        { "text": "360 minutes", "correct": true }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The default timeout for a job is 360 minutes (6 hours).",
+      "link": "https://docs.github.com/en/actions/learn-github-actions/usage-limits-billing-and-administration#usage-limits"
+    }
+  ]
+}

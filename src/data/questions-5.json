@@ -1,0 +1,93 @@
+{
+  "questions": [
+    {
+      "id": 121,
+      "title": "Question 121",
+      "question": "What’s true about default variables? (choose three)",
+      "choices": [
+        { "text": "Default environment variables are set by GitHub and not defined in a workflow", "correct": true },
+        { "text": "Most of the default environment variables have a corresponding context property", "correct": true },
+        { "text": "Currently, the value of the default CI environment variable can be overwritten, but it's not guaranteed this will always be possible", "correct": true },
+        { "text": "You can add a new default environment variable adding the prefix “GITHUB_” to it", "correct": false },
+        { "text": "Default environment variables always have the prefix “GITHUB_”", "correct": false },
+        { "text": "Default environment variables can be accessed using the env context", "correct": false }
+      ],
+      "isMultipleChoice": true,
+      "explanation": "Default environment variables are set by GitHub, often have a corresponding context property, and some can be overwritten.",
+      "link": "https://docs.github.com/en/actions/learn-github-actions/variables#default-environment-variables"
+    },
+    {
+      "id": 122,
+      "title": "Question 122",
+      "question": "What are the scopes defined for custom variables in a workflow? (choose three)",
+      "choices": [
+        { "text": "The entire workflow, by using `env` at the top level of the workflow file", "correct": true },
+        { "text": "The contents of a job within a workflow, by using `jobs.<job_id>.env`", "correct": true },
+        { "text": "A specific step within a job, by using `jobs.<job_id>.steps[*].env`", "correct": true },
+        { "text": "All the jobs within a workflow, by using `jobs.env`", "correct": false },
+        { "text": "The entire workflow, by using `custom.env` at the top level of the workflow file", "correct": false },
+        { "text": "A specific environment in the repository, by using `environment.<environment_id>.env` at the top level of the workflow file", "correct": false }
+      ],
+      "isMultipleChoice": true,
+      "explanation": "Environment variables can be defined at the workflow, job, and step levels.",
+      "link": "https://docs.github.com/en/actions/learn-github-actions/variables#defining-environment-variables-for-a-single-workflow"
+    },
+    {
+      "id": 123,
+      "title": "Question 123",
+      "question": "What must be added to `actions/checkout` if `my-org/my-private-repo` is a private repository differing from the one containing the current workflow?",
+      "choices": [
+        { "text": "Create a GitHub secret `MY_ACCESS_TOKEN`", "correct": true },
+        { "text": "Create an input `MY_ACCESS_TOKEN`", "correct": false },
+        { "text": "The environmental variable `GITHUB_TOKEN`", "correct": false },
+        { "text": "Leave as is since access tokens will be passed automatically", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "To check out a private repository, you need to provide a personal access token (PAT) with the appropriate permissions.",
+      "link": "https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#example-using-an-action-inside-a-different-private-repository-than-the-workflow"
+    },
+    {
+      "id": 124,
+      "title": "Question 124",
+      "question": "Given the following configuration, how many jobs will GitHub Actions run when this matrix is evaluated?",
+      "choices": [
+        { "text": "4 jobs", "correct": false },
+        { "text": "5 jobs", "correct": true },
+        { "text": "6 jobs", "correct": false },
+        { "text": "7 jobs", "correct": false },
+        { "text": "No jobs will run because the syntax is invalid.", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The initial matrix has 4 jobs (2 OS * 2 Node versions). The `include` key adds one new job (macos-latest/18) and modifies an existing one (ubuntu-latest/14), for a total of 5 jobs.",
+      "link": "https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/running-variations-of-jobs-in-a-workflow#expanding-or-adding-matrix-configurations"
+    },
+    {
+      "id": 125,
+      "title": "Question 125",
+      "question": "At what levels can environment variables be defined ? (Choose three)",
+      "choices": [
+        { "text": "Workflow level", "correct": true },
+        { "text": "Job level", "correct": true },
+        { "text": "Step level", "correct": true },
+        { "text": "Action level", "correct": false }
+      ],
+      "isMultipleChoice": true,
+      "explanation": "Environment variables can be defined at the workflow, job, and step levels.",
+      "link": "https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables"
+    },
+    {
+      "id": 126,
+      "title": "Question 126",
+      "question": "How should a dependent job reference the `output1` value produced by a job named `job1` earlier in the same workflow?",
+      "choices": [
+        { "text": "`${{needs.job1.outputs.output1}}`", "correct": true },
+        { "text": "`${{job1.outputs.output1}}`", "correct": false },
+        { "text": "`${{needs.job1.output1}}`", "correct": false },
+        { "text": "`${{depends.job1.output1}}`", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "Outputs from a dependent job are accessed using the `needs` context.",
+      "link": "https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/passing-information-between-jobs"
+    }
+  ]
+}

@@ -1,0 +1,420 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "title": "Question 001",
+      "question": "Which statement is correct regarding passing permissions to reusable workflows?",
+      "choices": [
+        { "text": "The `GITHUB_TOKEN` permissions passed from the caller workflow can be only downgraded by the called workflow.", "correct": true },
+        { "text": "The `GITHUB_TOKEN` permissions passed from the caller workflow can be only elevated by the called workflow.", "correct": false },
+        { "text": "The `GITHUB_TOKEN` permissions passed from the caller workflow can be both downgraded and elevated by the called workflow.", "correct": false },
+        { "text": "The `GITHUB_TOKEN` permissions passed from the caller workflow can be neither downgraded or elevated by the called workflow.", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The GITHUB_TOKEN permissions can only be downgraded by the called workflow, not elevated, for security reasons.",
+      "link": "https://docs.github.com/en/actions/using-workflows/reusing-workflows#access-and-permissions"
+    },
+    {
+      "id": 2,
+      "title": "Question 002",
+      "question": "What are the different permission levels you can assign to `GITHUB_TOKEN` in the `permissions` block?",
+      "choices": [
+        { "text": "none, write, read", "correct": true },
+        { "text": "read, write, delete", "correct": false },
+        { "text": "read, write", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The three permission levels for GITHUB_TOKEN are: none (no permissions), read (read-only access), and write (read and write access).",
+      "link": "https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs"
+    },
+    {
+      "id": 3,
+      "title": "Question 003",
+      "question": "You can use `permissions` to modify the `GITHUB_TOKEN` permissions on: (Select two.)",
+      "choices": [
+        { "text": "Workflow level", "correct": true },
+        { "text": "Job level", "correct": true },
+        { "text": "Step level", "correct": false }
+      ],
+      "isMultipleChoice": true,
+      "explanation": "You can set permissions at both the workflow level (applies to all jobs) and job level (overrides workflow level for that specific job). Permissions cannot be set at the step level.",
+      "link": "https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/controlling-permissions-for-github_token"
+    },
+    {
+      "id": 4,
+      "title": "Question 004",
+      "question": "Are GitHub Actions free for public repositories?",
+      "choices": [
+        { "text": "Yes", "correct": true },
+        { "text": "No", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "GitHub Actions is free for all public repositories.",
+      "link": "https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions"
+    },
+    {
+      "id": 5,
+      "title": "Question 005",
+      "question": "Which of these is not a valid event that could trigger a workflow?",
+      "choices": [
+        { "text": "Cloning the repository", "correct": true },
+        { "text": "Committing a file to master branch", "correct": false },
+        { "text": "A branch is created", "correct": false },
+        { "text": "Adding a label to a pull request", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "Cloning a repository does not trigger a workflow. Workflows are triggered by events such as pushes, pull requests, and branch creation.",
+      "link": "https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#about-events-that-trigger-workflows"
+    },
+    {
+      "id": 6,
+      "title": "Question 006",
+      "question": "Which is true about workflows? (Select three.)",
+      "choices": [
+        { "text": "Workflows can run one or multiple jobs at a time", "correct": true },
+        { "text": "Workflows can be triggered manually, by an event or run on a schedule", "correct": true },
+        { "text": "Workflows have to be defined in the `.github/workflows` directory", "correct": true },
+        { "text": "Workflows can only be run on a schedule", "correct": false },
+        { "text": "Workflow can run only one job at a time", "correct": false },
+        { "text": "Workflows are written in any of `.yaml`, `.json` or `.toml` formats", "correct": false },
+        { "text": "Workflows can be shared in GitHub Marketplace", "correct": false }
+      ],
+      "isMultipleChoice": true,
+      "explanation": "Workflows can run multiple jobs, be triggered in various ways, and must be in the `.github/workflows` directory. They can't be shared on the Marketplace, and are written in YAML.",
+      "link": "https://docs.github.com/en/actions/using-workflows/about-workflows"
+    },
+    {
+      "id": 7,
+      "title": "Question 007",
+      "question": "Which components are required for a workflow? (Select two.)",
+      "choices": [
+        { "text": "One or more events that will trigger the workflow", "correct": true },
+        { "text": "One or more jobs", "correct": true },
+        { "text": "Workflow name", "correct": false },
+        { "text": "Defined branches on which the workflow will run", "correct": false }
+      ],
+      "isMultipleChoice": true,
+      "explanation": "A workflow must have at least one event trigger and at least one job. A name and branch definition are optional.",
+      "link": "https://docs.github.com/en/actions/using-workflows/about-workflows#workflow-basics"
+    },
+    {
+      "id": 8,
+      "title": "Question 008",
+      "question": "Which event is triggered by a webhook action from outside of the repository?",
+      "choices": [
+        { "text": "repository_dispatch", "correct": true },
+        { "text": "webhook_dispatch", "correct": false },
+        { "text": "workflow_dispatch", "correct": false },
+        { "text": "remote_dispatch", "correct": false },
+        { "text": "api_dispatch", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `repository_dispatch` event is used to trigger a workflow from an external webhook.",
+      "link": "https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows"
+    },
+    {
+      "id": 9,
+      "title": "Question 009",
+      "question": "Workflows are defined in which format",
+      "choices": [
+        { "text": "yaml", "correct": true },
+        { "text": "toml", "correct": false },
+        { "text": "json", "correct": false },
+        { "text": "xml", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "Workflows are defined using YAML syntax.",
+      "link": "https://docs.github.com/en/actions/using-workflows/about-workflows"
+    },
+    {
+      "id": 10,
+      "title": "Question 010",
+      "question": "Where should you store sensitive data such as passwords or certificates that will be used in workflows",
+      "choices": [
+        { "text": "secrets", "correct": true },
+        { "text": "config variables", "correct": false },
+        { "text": "vault", "correct": false },
+        { "text": "environment variables", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "Sensitive data should be stored as encrypted secrets.",
+      "link": "https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions"
+    },
+    {
+      "id": 11,
+      "title": "Question 011",
+      "question": "In a workflow with multiple jobs the default behavior is:",
+      "choices": [
+        { "text": "All jobs run in parallel", "correct": true },
+        { "text": "Jobs run in sequence", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "By default, all jobs in a workflow run in parallel.",
+      "link": "https://docs.github.com/en/actions/using-workflows/about-workflows#creating-dependent-jobs"
+    },
+    {
+      "id": 12,
+      "title": "Question 012",
+      "question": "If job B requires job A to be finished you have to:",
+      "choices": [
+        { "text": "use the `needs` keyword in job B to create this dependency", "correct": true },
+        { "text": "use the `needs` keyword in job A to create this dependency", "correct": false },
+        { "text": "use the `requires` keyword in job B to create this dependency", "correct": false },
+        { "text": "use the `requires` keyword in job A to create this dependency", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `needs` keyword is used in the dependent job (job B) to specify that it depends on another job (job A).",
+      "link": "https://docs.github.com/en/actions/using-workflows/about-workflows#creating-dependent-jobs"
+    },
+    {
+      "id": 13,
+      "title": "Question 013",
+      "question": "In a workflow with multiple jobs, if job A fails then:",
+      "choices": [
+        { "text": "the jobs that are dependent on job A are skipped", "correct": true },
+        { "text": "the jobs that are dependent on job A fail", "correct": false },
+        { "text": "the workflow immediately cancels all other jobs", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "If a job fails, any jobs that depend on it are skipped.",
+      "link": "https://docs.github.com/en/actions/using-workflows/about-workflows#creating-dependent-jobs"
+    },
+    {
+      "id": 14,
+      "title": "Question 014",
+      "question": "This code will launch 6 different jobs in parallel using the matrix strategy. Can you use the matrix strategy to parallelize entire workflows?\n```yaml\njobs:\n  example_matrix:\n    strategy:\n      matrix:\n        version: [10, 12, 14]\n        os: [ubuntu-latest, windows-latest]\n```",
+      "choices": [
+        { "text": "No", "correct": false },
+        { "text": "Yes", "correct": true }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "You can use a matrix strategy to run a reusable workflow multiple times with different inputs.",
+      "link": "https://docs.github.com/en/actions/using-workflows/reusing-workflows#using-a-matrix-strategy-with-a-reusable-workflow"
+    },
+    {
+      "id": 15,
+      "title": "Question 015",
+      "question": "Which matrix job definition is syntactically correct?",
+      "choices": [
+        { "text": "```yaml\njobs:\n  example_matrix:\n    strategy:\n      matrix:\n        version: [10, 12, 14]\n        os: [ubuntu-latest, windows-latest]\n```", "correct": true },
+        { "text": "```yaml\njobs:\n  example_matrix:\n    matrix:\n      strategy:\n        version: [10, 12, 14]\n        os: [ubuntu-latest, windows-latest]\n```", "correct": false },
+        { "text": "```yaml\njobs:\n  example_matrix:\n    matrix:\n      version: [10, 12, 14]\n      os: [ubuntu-latest, windows-latest]\n```", "correct": false },
+        { "text": "```yaml\njobs:\n  matrix:\n    version: [10, 12, 14]\n    os: [ubuntu-latest, windows-latest]\n```", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The correct syntax for a matrix is to define it under the `strategy` key within a job.",
+      "link": "https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs#using-a-matrix-strategy"
+    },
+    {
+      "id": 16,
+      "title": "Question 016",
+      "question": "How do you access matrix variables in a matrix strategy job?",
+      "choices": [
+        { "text": "Using the `vars` context", "correct": false },
+        { "text": "Using the `matrix` context", "correct": true },
+        { "text": "Using the `job` context", "correct": false },
+        { "text": "Using the `jobs` context", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "Matrix variables are accessed through the `matrix` context.",
+      "link": "https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs#using-a-matrix-strategy"
+    },
+    {
+      "id": 17,
+      "title": "Question 017",
+      "question": "When using the `pull_request` and `pull_request_target` events, how do you configure the workflow to run only when targeting the `prod` branch?",
+      "choices": [
+        { "text": "Using `branches` filter", "correct": true },
+        { "text": "Using `branch` filter", "correct": false },
+        { "text": "You create the workflow only on `prod` branch", "correct": false },
+        { "text": "Using glob patterns", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `branches` filter is used to specify which branches the workflow should run on for pull request events.",
+      "link": "https://docs.github.com/en/actions/using-workflows/triggering-a-workflow#using-filters-to-target-specific-branches-for-pull-request-events"
+    },
+    {
+      "id": 18,
+      "title": "Question 018",
+      "question": "This workflow will run on all pull requests where:\n```yaml\non:\n  pull_request:\n    branches:\n      - 'release/**'\n      - '!release/**-alpha'\n```",
+      "choices": [
+        { "text": "the target branch name starts with `release` but does not end with `-alpha`", "correct": true },
+        { "text": "the target branch name starts with `release`", "correct": false },
+        { "text": "the source branch name starts with `release` but does not end with `-alpha`", "correct": false },
+        { "text": "the source branch name starts with `release`", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `branches` filter with the `pull_request` event targets the *target* branch. The `!` character excludes branches that match the pattern.",
+      "link": "https://docs.github.com/en/actions/using-workflows/triggering-a-workflow#example-including-and-excluding-branches"
+    },
+    {
+      "id": 19,
+      "title": "Question 019",
+      "question": "Fill in the blank: When using `push` event trigger filters you can use <____> patterns to target multiple branches",
+      "choices": [
+        { "text": "glob", "correct": true },
+        { "text": "regex", "correct": false },
+        { "text": "scheme", "correct": false },
+        { "text": "action", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "Glob patterns are used to target multiple branches or tags with the `push` event trigger.",
+      "link": "https://docs.github.com/en/actions/using-workflows/triggering-a-workflow#using-filters-to-target-specific-branches-or-tags-for-push-events"
+    },
+    {
+      "id": 20,
+      "title": "Question 020",
+      "question": "Which event allows you to manually trigger a workflow from the GitHub UI?",
+      "choices": [
+        { "text": "workflow_dispatch", "correct": true },
+        { "text": "manual_dispatch", "correct": false },
+        { "text": "workflow_trigger", "correct": false },
+        { "text": "manual_trigger", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `workflow_dispatch` event allows you to manually trigger a workflow.",
+      "link": "https://docs.github.com/en/actions/using-workflows/manually-running-a-workflow"
+    },
+    {
+      "id": 21,
+      "title": "Question 021",
+      "question": "What are the possible types of an input variable for a manually triggered workflow? (Select five.)",
+      "choices": [
+        { "text": "choice", "correct": true },
+        { "text": "boolean", "correct": true },
+        { "text": "string", "correct": true },
+        { "text": "number", "correct": true },
+        { "text": "environment", "correct": true },
+        { "text": "dropdown", "correct": false },
+        { "text": "select", "correct": false }
+      ],
+      "isMultipleChoice": true,
+      "explanation": "The possible input types for a manually triggered workflow are: `choice`, `boolean`, `string`, `number`, and `environment`.",
+      "link": "https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#onworkflow_dispatchinputsinput_idtype"
+    },
+    {
+      "id": 22,
+      "title": "Question 022",
+      "question": "A workflow that has only `workflow_dispatch` event trigger can be triggered using GitHub's REST API",
+      "choices": [
+        { "text": "True", "correct": true },
+        { "text": "False", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "You can trigger a `workflow_dispatch` event using the REST API.",
+      "link": "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_dispatchinputs"
+    },
+    {
+      "id": 23,
+      "title": "Question 023",
+      "question": "To stop a workflow from running temporarily without modifying the source code you should",
+      "choices": [
+        { "text": "Use the `Disable workflow` option in GitHub Actions", "correct": true },
+        { "text": "Remove secrets that are required for this workflow", "correct": false },
+        { "text": "Delete environment that is required for this workflow", "correct": false },
+        { "text": "Prevent any new commits to main branch", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "You can temporarily disable a workflow from the GitHub Actions UI.",
+      "link": "https://docs.github.com/en/actions/using-workflows/disabling-and-enabling-a-workflow"
+    },
+    {
+      "id": 24,
+      "title": "Question 024",
+      "question": "What are `activity types` of an event used for ?",
+      "choices": [
+        { "text": "Limiting workflow runs to specific activity types using the `types` filter", "correct": true },
+        { "text": "Checking if the activity comes from an user or a bot", "correct": false },
+        { "text": "Reacting to new activity on a repository (e.g new contributor)", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "Activity types are used with the `types` filter to limit when a workflow runs based on the specific action that triggered the event.",
+      "link": "https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#about-events-that-trigger-workflows"
+    },
+    {
+      "id": 25,
+      "title": "Question 025",
+      "question": "You want to create a reusable workflow `CI` that runs some quality checks, linting and tests on code changes. What event trigger should the `CI` workflow define to allow reusing it in other workflows?",
+      "choices": [
+        { "text": "workflow_call", "correct": true },
+        { "text": "workflow_trigger", "correct": false },
+        { "text": "workflow_dispatch", "correct": false },
+        { "text": "workflow_run", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `workflow_call` event trigger is used to create a reusable workflow.",
+      "link": "https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows"
+    },
+    {
+      "id": 26,
+      "title": "Question 026",
+      "question": "A reusable workflow named `build` creates zip file artifacts. How do you pass the zip file location to the caller workflow that is calling the `build` workflow? (Select three.)",
+      "choices": [
+        { "text": "You define an output on workflow level in the `build` workflow", "correct": true },
+        { "text": "You define an output on job level in the `build` workflow", "correct": true },
+        { "text": "In the `build` workflow you write the output into `$GITHUB_OUTPUT` in one of the steps", "correct": true },
+        { "text": "All outputs are automatically passed to the caller workflows", "correct": false }
+      ],
+      "isMultipleChoice": true,
+      "explanation": "You can pass outputs from a reusable workflow to a caller workflow by defining outputs at the workflow or job level, and by writing to `$GITHUB_OUTPUT` in a step.",
+      "link": "https://docs.github.com/en/actions/using-workflows/reusing-workflows#using-outputs-from-a-reusable-workflow"
+    },
+    {
+      "id": 27,
+      "title": "Question 027",
+      "question": "What are the valid use cases for using **defaults**? (Select two.)",
+      "choices": [
+        { "text": "Using defaults.run on workflow level to set default shell (e.g bash) for an entire workflow", "correct": true },
+        { "text": "Using defaults.run on job level to set default working-directory for all steps in a single job", "correct": true },
+        { "text": "Using defaults.run on step level to set default shell (e.g bash) for that single step", "correct": false },
+        { "text": "Using defaults.env on workflow level to set default environment variables for an entire workflow", "correct": false },
+        { "text": "Using defaults.env on job level to set default environment variables for all steps in a single job", "correct": false }
+      ],
+      "isMultipleChoice": true,
+      "explanation": "The `defaults` key can be used at the workflow or job level to set default `run` settings, such as `shell` and `working-directory`.",
+      "link": "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#defaults"
+    },
+    {
+      "id": 28,
+      "title": "Question 028",
+      "question": "How can you ensure that a workflow called `Deploy Prod` is always running at most one at a time?",
+      "choices": [
+        { "text": "Use `concurrency` on workflow level", "correct": true },
+        { "text": "Use `queue` on workflow level", "correct": false },
+        { "text": "Use `order` on workflow level", "correct": false },
+        { "text": "Use `parallel` on workflow level", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `concurrency` key can be used at the workflow level to ensure that only one run of the workflow is active at a time.",
+      "link": "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#concurrency"
+    },
+    {
+      "id": 29,
+      "title": "Question 029",
+      "question": "Your Pull Request analysis workflow uses multiple code analysis tools and takes about 20minutes to fully complete. It is triggered on `pull_request` event with `branches` filter set to `master`. Therefore if a developer pushes multiple commits within few minutes multiple workflows are running in parallel. How can you stop all previous workflow runs and only run the one with latest changes?",
+      "choices": [
+        { "text": "Use concurrency with cancel-in-progress", "correct": true },
+        { "text": "Use concurrency", "correct": false },
+        { "text": "Use activity types filter", "correct": false },
+        { "text": "Use cancel-in-progress flag for `pull_request` event", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `concurrency` key with `cancel-in-progress: true` will cancel any in-progress runs of the same workflow on the same branch.",
+      "link": "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#example-using-concurrency-to-cancel-any-in-progress-job-or-run"
+    },
+    {
+      "id": 30,
+      "title": "Question 030",
+      "question": "When will job3 run?\n```yaml\n  jobs:\n    job1:\n    job2:\n      needs: job1\n    job3:\n      if: ${{ always() }}\n      needs: [job1, job2]\n```",
+      "choices": [
+        { "text": "job3 will run after job1 and job2 have completed, regardless of whether they were successful", "correct": true },
+        { "text": "You cannot use `if: ${{ always() }}` and `needs` together. The workflow will fail on startup.", "correct": false },
+        { "text": "job3 will run after job1 and job2 have been successfully completed", "correct": false },
+        { "text": "job3 will run after both job1 and job2 have failed", "correct": false }
+      ],
+      "isMultipleChoice": false,
+      "explanation": "The `always()` function ensures that the job will run regardless of the success or failure of its dependencies.",
+      "link": "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#example-not-requiring-successful-dependent-jobs"
+    }
+  ]
+}
