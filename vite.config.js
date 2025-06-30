@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
+  base: '/gha_quiz/',
   root: '.',
   server: {
     host: true,
