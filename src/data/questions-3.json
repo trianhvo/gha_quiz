@@ -91,8 +91,8 @@
       "title": "Question 067",
       "question": "Which is the correct way of triggering a job only if configuration variable `MY_VAR` has the value of `MY_VALUE`?",
       "choices": [
-        { "text": "By creating the following conditional on job level", "correct": true },
-        { "text": "By creating the following conditional on job level", "correct": false },
+        { "text": "By creating the following conditional on job level\n```yaml\n  my-job:\n    if: ${{ vars.MY_VAR == 'MY_VALUE' }}\n```", "correct": true },
+        { "text": "By creating the following conditional on job level\n```yaml\n  my-job:\n    if: ${{ vars.MY_VAR }} == 'MY_VALUE'\n```", "correct": false },
         { "text": "It's not possible because configuration variables cannot be used in `if` conditionals", "correct": false },
         { "text": "It's not possible because configuration variables cannot be used in job level `if` conditionals", "correct": false }
       ],
@@ -105,10 +105,10 @@
       "title": "Question 068",
       "question": "To run a `step` only if the secret `MY_SECRET` has been set, you can:",
       "choices": [
-        { "text": "Set the secret `MY_SECRET` as a job level environment variable, then reference that environment variable to conditionally run that step", "correct": true },
-        { "text": "By creating the following conditional on job level", "correct": false },
-        { "text": "By creating the following conditional on step level", "correct": false },
-        { "text": "By creating the following conditional on step level", "correct": false }
+        { "text": "Set the secret `MY_SECRET` as a job level environment variable, then reference that environment variable to conditionally run that step\n```yaml\n  my-job:\n    runs-on: ubuntu-latest\n    env:\n      my_secret: ${{ secrets.MY_SECRET }}\n    steps:\n      - if: ${{ env.my_secret != '' }}\n```", "correct": true },
+        { "text": "By creating the following conditional on job level\n```yaml\n  my-job:\n    runs-on: ubuntu-latest\n    if: ${{ secrets.MY_SECRET == '' }}\n```", "correct": false },
+        { "text": "By creating the following conditional on step level\n```yaml\n  my-job:\n    runs-on: ubuntu-latest\n    steps:\n      - if: ${{ secrets.MY_SECRET == '' }}\n```", "correct": false },
+        { "text": "By creating the following conditional on step level\n```yaml\n  my-job:\n    runs-on: ubuntu-latest\n    steps:\n      - if: ${{ secrets.MY_SECRET }}\n```", "correct": false }
       ],
       "isMultipleChoice": false,
       "explanation": "Secrets cannot be directly referenced in `if` conditionals. The recommended workaround is to set the secret as an environment variable and then check if the environment variable is set.",
@@ -278,10 +278,10 @@
       "title": "Question 080",
       "question": "What is the correct syntax for setting the directory for all `run` commands in a workflow?",
       "choices": [
-        { "text": "set `working-directory` under `defaults.run`", "correct": true },
-        { "text": "set `directory` under `defaults.run`", "correct": false },
-        { "text": "set `working-directory` under `job`", "correct": false },
-        { "text": "set `directory` under `job`", "correct": false }
+        { "text": "set `working-directory` under `defaults.run`\n```yaml\n    defaults:\n        run:\n            shell: bash\n            working-directory: ./scripts\n   ```", "correct": true },
+        { "text": "set `directory` under `defaults.run`\n```yaml\n    defaults:\n        run:\n            shell: bash\n            directory: ./scripts\n   ```", "correct": false },
+        { "text": "set `working-directory` under `job`\n```yaml\n    defaults:\n        run:\n            shell: bash\n    job:\n        working-directory: ./scripts\n   ```", "correct": false },
+        { "text": "set `directory` under `job`\n```yaml\n    defaults:\n        run:\n            shell: bash\n    job:\n        directory: ./scripts\n   ```", "correct": false }
       ],
       "isMultipleChoice": false,
       "explanation": "You can set the default working directory for all `run` commands in a workflow by using the `defaults.run.working-directory` key.",
